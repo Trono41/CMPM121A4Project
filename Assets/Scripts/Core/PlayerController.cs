@@ -40,6 +40,11 @@ public class PlayerController : MonoBehaviour
 
     public Unit unit;
 
+    // Inventory
+
+    public List<string> spell_pieces = new List<string>();
+    public List<string> relic_pieces = new List<string>();
+
     public List<Relic> relics = new List<Relic>();
     public List<string> relic_names = new List<string>();
 
