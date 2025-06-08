@@ -275,6 +275,7 @@ public class EnemySpawner : MonoBehaviour
 
         variables["base"] = enemyObject.speed;
         en.speed = rpn.Eval(speed, variables);
+        en.baseSpeed = rpn.Eval(speed, variables);
 
         variables["base"] = enemyObject.damage;
         en.damage = rpn.Eval(damage, variables);

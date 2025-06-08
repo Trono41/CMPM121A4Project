@@ -95,5 +95,45 @@
             "amount": "10",
             "until": "permanent"
         }
+    },
+    {
+        "name": "Wave Surge",
+        "sprite": 4,
+        "trigger": {
+            "description": "When a new wave starts",
+            "type": "wave-start"
+        },
+        "effect": {
+            "description": "gain 50 additional spellpower for 30 seconds.",
+            "type": "gain-spellpower",
+            "amount": 50,
+            "until": "duration"
+        }
+    },
+    {
+        "name": "Wave Heart",
+        "sprite": 6,
+        "trigger": {
+            "description": "Whenever you finish a wave",
+            "type": "wave-complete"
+        },
+        "effect": {
+            "description": "gain 10 max hp",
+            "type": "gain-max-hp",
+            "amount": "10"
+        }
+    },
+    {
+        "name": "Mana Blade",
+        "sprite": 8,
+        "trigger": {
+            "description": "Whenever you deal damage to an enemy",
+            "type": "enemy-damage"
+        },
+        "effect": {
+            "description": "you replelnish 1 mana",
+            "type": "gain-mana",
+            "amount": 1
+        }
     }
 ]

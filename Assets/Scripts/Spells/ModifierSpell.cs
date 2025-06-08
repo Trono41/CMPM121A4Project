@@ -172,7 +172,6 @@ public class ModifierSpell : Spell
     {
         return inner.GetIcon();
     }
-
 }
 
 public class DamageAmplifier : ModifierSpell
@@ -190,9 +189,7 @@ public class DamageAmplifier : ModifierSpell
         description = properties["description"].ToObject<string>();
         damage_multiplier = properties["damage_multiplier"].ToObject<string>();
         mana_multiplier = properties["mana_multiplier"].ToObject<string>();
-
     }
-
 }
 
 public class SpeedAmplifier : ModifierSpell
@@ -209,9 +206,7 @@ public class SpeedAmplifier : ModifierSpell
         name = properties["name"].ToString();
         description = properties["description"].ToObject<string>();
         speed_multiplier = properties["speed_multiplier"].ToObject<string>();
-
     }
-
 }
 
 public class Chaos : ModifierSpell
@@ -229,9 +224,7 @@ public class Chaos : ModifierSpell
         description = properties["description"].ToObject<string>();
         damage_multiplier = properties["damage_multiplier"].ToObject<string>();
         projectile_trajectory = properties["projectile_trajectory"].ToObject<string>();
-
     }
-
 }
 public class Homing : ModifierSpell
 {
@@ -249,9 +242,7 @@ public class Homing : ModifierSpell
         mana_adder = properties["mana_adder"].ToObject<string>();
         damage_multiplier = properties["damage_multiplier"].ToObject<string>();
         projectile_trajectory = properties["projectile_trajectory"].ToObject<string>();
-
     }
-
 }
 
 public class RapidFire : ModifierSpell
@@ -270,9 +261,7 @@ public class RapidFire : ModifierSpell
         damage_multiplier = properties["damage_multiplier"].ToObject<string>();
         speed_multiplier = properties["speed_multiplier"].ToObject<string>();
         mana_multiplier = properties["mana_multiplier"].ToObject<string>();
-
     }
-
 }
 
 public class Slug : ModifierSpell
@@ -291,7 +280,23 @@ public class Slug : ModifierSpell
         damage_multiplier = properties["damage_multiplier"].ToObject<string>();
         speed_multiplier = properties["speed_multiplier"].ToObject<string>();
         mana_multiplier = properties["mana_multiplier"].ToObject<string>();
+    }
+}
+
+public class Heavy : ModifierSpell
+{
+    public Heavy()
+    {
 
     }
 
+    override public void SetProperties(JObject properties)
+    {
+        isModifier = true;
+
+        name = properties["name"].ToString();
+        description = properties["description"].ToObject<string>();
+        damage_multiplier = properties["damage_multiplier"].ToObject<string>();
+        speed_multiplier = properties["speed_multiplier"].ToObject<string>();
+    }
 }

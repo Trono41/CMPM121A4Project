@@ -5,6 +5,7 @@ public class EnemyController : MonoBehaviour
 
     public Transform target;
     public int speed;
+    public int baseSpeed;
     public Hittable hp;
     public int damage;
     public HealthBar healthui;
@@ -59,5 +60,10 @@ public class EnemyController : MonoBehaviour
     public void SetSpeed(int newSpeed)
     {
         speed = newSpeed;
+    }
+
+    public void BaseSpeed(int initSpeed)
+    {
+        baseSpeed = initSpeed;
     }
 }

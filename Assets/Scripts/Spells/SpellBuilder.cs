@@ -3,7 +3,6 @@ using System.IO;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System;
 
 
@@ -23,6 +22,10 @@ public class SpellBuilder
             int val = UnityEngine.Random.Range(0, spellnames.Count - 1);
             name = spellnames[val];
         }
+        else
+        {
+            name = s;
+        }
 
         //while (used.Contains(val))
         //{
@@ -31,6 +34,7 @@ public class SpellBuilder
 
         //used.Add(val);
 
+        Debug.Log("Name of spell: " + s);
 
         if (name == "arcane_bolt")
             return new ArcaneBolt();
@@ -42,6 +46,8 @@ public class SpellBuilder
             return new ArcaneSpray();
         else if (name == "ice_bolt")
             return new IceBolt();
+        else if (name == "arcane_slow")
+            return new ArcaneSlow();
 
         else if (name == "damage_amp")
         {
@@ -76,6 +82,14 @@ public class SpellBuilder
         {
             return new Slug();
         }
+        else if (name == "heavy")
+        {
+            return new Heavy();
+        }
+        /*else if (name == "bounce")
+        {
+            return new Bounce();
+        }*/
 
         return new ArcaneBolt();
     }
@@ -137,13 +151,13 @@ public class SpellBuilder
     {
         Spell spell = MakeSpell(name);
 
-        //UnityEngine.Debug.Log(name);
+        Debug.Log(name);
 
         JObject jobject = properties[name].Value<JObject>();
         spell.SetProperties(jobject);
         spell.SetOwner(owner);
 
-        //UnityEngine.Debug.Log(jobject);
+        Debug.Log(jobject);
 
         if (spell.IsModifier())
         {

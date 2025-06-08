@@ -50,6 +50,15 @@
        "duration": "1 power 100 / +",
        "projectile": {"trajectory": "straight", "speed": "12 power 3 / +", "sprite": 0}
    },
+   "arcane_slow": {
+       "name": "Arcane Slow",
+       "description": "A blast which slows the enemy on hit.",
+       "icon": "3",
+       "damage": {"amount": "10 power 3 / +", "type": "arcane"},
+       "mana_cost": "10 power 5 / +",
+       "cooldown": "2.5",
+       "projectile": {"trajectory": "straight", "speed": "8", "sprite": 0}
+   },
    "damage_amp": {
        "name": "Damage-Amplified",
        "description": "Increased damage and increased mana cost.",
@@ -77,6 +86,12 @@
        "speed_multiplier": "0.5",
        "cooldown_multiplier": "1.25"
    },
+   "heavy": {
+       "name": "Heavy",
+       "description": "Slow, but deadly...",
+       "speed_multiplier": "0.5",
+       "damage_multiplier": "1.5"
+   },
    "doubler": {
        "name": "Doubled",
        "description": "Spell is cast a second time after a small delay; increased mana cost and cooldown.",
@@ -102,6 +117,10 @@
        "damage_multiplier": "0.75",
        "mana_adder": "10",
        "projectile_trajectory": "homing"
+   },
+   "bounce": {
+       "name": "Bouncing",
+       "description": "If this spell hits an enemy, it bounces off them.",
+       "mana_multiplier": "1.2"
    }
-
 }
