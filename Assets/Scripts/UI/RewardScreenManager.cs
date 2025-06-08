@@ -42,7 +42,6 @@ public class RewardScreenManager : MonoBehaviour
         spellcaster = playerController.spellcaster;
         if (GameManager.Instance.state == GameManager.GameState.WAVEEND)
         {
-            rewardUI.SetActive(true);
 
             // Reward Spell UI
 

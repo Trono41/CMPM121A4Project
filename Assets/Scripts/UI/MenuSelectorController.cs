@@ -12,13 +12,13 @@ public class MenuSelectorController : MonoBehaviour
     public PlayerController player;
     public JToken class_stats;
 
-    public GameObject curr_screen;
+    public ScreenManager screen_manager;
     public GameObject next_screen;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        curr_screen = GameObject.Find("ClassSelectorScreen");
+        screen_manager = GameObject.Find("ScreenManager").GetComponent<ScreenManager>();
         next_screen = GameObject.Find("DifficultySelector");
     }
 
@@ -49,8 +49,8 @@ public class MenuSelectorController : MonoBehaviour
     public void SetClass()
     {
         player.SetClass(class_stats);
-        next_screen.SetActive(true);
-        curr_screen.SetActive(false);
+
+        screen_manager.SwitchScreen(next_screen);
     }
 
 }
