@@ -1,6 +1,11 @@
 using UnityEngine;
+using UnityEngine.UI;
+using Image = UnityEngine.UI.Image;
+using TMPro;
+using static System.Net.Mime.MediaTypeNames;
+using System.Collections.Generic;
 
-public class CraftManager : MonoBehaviour
+public class CraftingScreenManager : MonoBehaviour
 {
 
     public PieceUI[] piece_uis;

@@ -16,8 +16,4 @@ public class InventoryManager : MonoBehaviour
         
     }
 
-    /*public Inventory<T> CreateInventory(T type)
-    {
-        return new Inventory<type>();
-    }*/
 }
