@@ -58,7 +58,7 @@ public class RelicManager : MonoBehaviour
     public Relic BuildRelic()
     {
         int i = UnityEngine.Random.Range(0, relic_objects.Count);
-        return relic_builder.BuildRelic(relic_objects[7]);
+        return relic_builder.BuildRelic(relic_objects[i]);
     }
 
     public RelicTriggers BuildTrigger(JObject trigger_object)
