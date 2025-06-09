@@ -1,7 +1,10 @@
 using UnityEngine;
 
-public class Crafter : MonoBehaviour
+public class CraftManager : MonoBehaviour
 {
+
+    public PieceUI[] piece_uis;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -13,10 +16,4 @@ public class Crafter : MonoBehaviour
     {
         
     }
-
-    public void Craft()
-    {
-        
-    }
-
 }

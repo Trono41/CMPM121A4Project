@@ -26,6 +26,8 @@ public class RelicManager : MonoBehaviour
 
     JArray relic_data;
     List<JObject> relic_objects;
+    List<RelicTriggers> relic_triggers;
+    List<RelicEffects> relic_effects;
     RelicBuilder relic_builder;
     PlayerController player;
 
@@ -59,6 +61,22 @@ public class RelicManager : MonoBehaviour
     {
         int i = UnityEngine.Random.Range(0, relic_objects.Count);
         return relic_builder.BuildRelic(relic_objects[i]);
+    }
+
+    public void BuildTriggers()
+    {
+        foreach (var relic_object in relic_objects)
+        {
+            relic_triggers.Add(BuildTrigger(relic_object["trigger"].ToObject<JObject>()));
+        }
+    }
+
+    public void BuildEffects()
+    {
+        foreach (var relic_object in relic_objects)
+        {
+            relic_effects.Add(BuildEffect(relic_object["effect"].ToObject<JObject>()));
+        }
     }
 
     public RelicTriggers BuildTrigger(JObject trigger_object)

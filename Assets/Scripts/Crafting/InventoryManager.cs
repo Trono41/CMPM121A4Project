@@ -1,7 +1,9 @@
+using System.Collections.Generic;
 using UnityEngine;
 
-public class Crafter : MonoBehaviour
+public class InventoryManager : MonoBehaviour
 {
+    public PlayerController player;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -14,9 +16,8 @@ public class Crafter : MonoBehaviour
         
     }
 
-    public void Craft()
+    /*public Inventory<T> CreateInventory(T type)
     {
-        
-    }
-
+        return new Inventory<type>();
+    }*/
 }

@@ -3,14 +3,16 @@ using UnityEngine.UI;
 using Image = UnityEngine.UI.Image;
 using TMPro;
 using static System.Net.Mime.MediaTypeNames;
+using System;
 
 public class PieceUI : MonoBehaviour
 {
 
-    /*public Piece<T> piece = new Piece<T>();
+    /*public Piece<> piece = new Piece<>();
+    public Piece<Relic> relic_piece = new Piece<Relic>();
     public GameObject icon;
 
-    public void SetPiece(Piece<T> piece)
+    public void SetPiece(Piece<> piece)
     {
         this.piece = piece;
 
@@ -24,6 +26,5 @@ public class PieceUI : MonoBehaviour
     public void AddRelic()
     {
         relic_ui_manager.AddRelic(relic);
-    }
-    */
+    }*/
 }
