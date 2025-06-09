@@ -10,6 +10,7 @@ public class Hittable
 
     public int hp;
     public int max_hp;
+    public int bonus_max_hp = 0;
     public float defense;
 
     public GameObject owner;
@@ -52,7 +53,8 @@ public class Hittable
     public void SetMaxHP(int max_hp)
     {
         float perc = this.hp * 1.0f / this.max_hp;
-        this.max_hp = max_hp;
+        this.max_hp = max_hp + this.bonus_max_hp;
+        Debug.Log("Player max hp is: " + this.max_hp);
         this.hp = Mathf.RoundToInt(perc * max_hp);
     }
 

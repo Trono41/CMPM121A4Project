@@ -269,5 +269,86 @@ public class SpellDrop : RelicTriggers
         effect.apply();
         UnityEngine.Debug.Log("Permanent Spellpower Added!");
     }
+}
 
+public class WaveStart : RelicTriggers
+{
+    RelicEffects effect = new RelicEffects();
+
+    public WaveStart()
+    {
+        EventBus.Instance.OnWaveStart += ApplyEffect;
+        UnityEngine.Debug.Log("WaveStart event sent");
+    }
+
+    public override void Register(RelicEffects effect)
+    {
+        this.effect = effect;
+    }
+
+    public override void ApplyEffect()
+    {
+        effect.apply();
+        UnityEngine.Debug.Log("In WaveStart() trigger: Applying effect!");
+        RemoveEffect();
+    }
+
+    public override void RemoveEffect()
+    {
+        if (effect.until == "duration")
+        {
+            CoroutineManager.Instance.StartCoroutine(Duration());
+        }
+    }
+
+    IEnumerator Duration()
+    {
+        UnityEngine.Debug.Log("Starting effect duration timer");
+        yield return new WaitForSeconds(30);
+        effect.remove();
+    }
+}
+
+public class WaveComplete : RelicTriggers
+{
+    RelicEffects effect = new RelicEffects();
+
+    public WaveComplete()
+    {
+        EventBus.Instance.OnWaveEnd += ApplyEffect;
+        UnityEngine.Debug.Log("WaveComplete event sent");
+    }
+
+    public override void Register(RelicEffects effect)
+    {
+        this.effect = effect;
+    }
+
+    override public void ApplyEffect()
+    {
+        effect.apply();
+        UnityEngine.Debug.Log("MaxHp added");
+    }
+}
+
+public class EnemyDamage : RelicTriggers
+{
+    RelicEffects effect = new RelicEffects();
+
+    public EnemyDamage()
+    {
+        EventBus.Instance.OnEnemyTakeDamage += ApplyEffect;
+        UnityEngine.Debug.Log("EnemyDamage event sent");
+    }
+
+    public override void Register(RelicEffects effect)
+    {
+        this.effect = effect;
+    }
+
+    public override void ApplyEffect()
+    {
+        effect.apply();
+        UnityEngine.Debug.Log("Regained mana");
+    }
 }

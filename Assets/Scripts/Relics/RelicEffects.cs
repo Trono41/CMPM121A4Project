@@ -131,3 +131,18 @@ public class RegainHP : RelicEffects
     }
 }
 
+public class GainMaxHP : RelicEffects
+{
+    public GainMaxHP(string amount, PlayerController owner)
+    {
+        this.amount = rpn.Eval(amount, variables);
+        this.owner = owner;
+    }
+
+    public override void apply()
+    {
+        Debug.Log("PlayerMaxHp is: " + owner.hp.max_hp);
+        owner.hp.bonus_max_hp += 10;
+    }
+}
+

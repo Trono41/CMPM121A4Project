@@ -152,6 +152,7 @@ public class EnemySpawner : MonoBehaviour
             GameManager.Instance.countdown--;
         }
         GameManager.Instance.state = GameManager.GameState.INWAVE;
+        EventBus.Instance.DoWaveStart();
         
         foreach (Spawn spawn in level.spawns) // For each enemy type . . .
         {

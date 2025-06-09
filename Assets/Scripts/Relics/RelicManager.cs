@@ -58,7 +58,7 @@ public class RelicManager : MonoBehaviour
     public Relic BuildRelic()
     {
         int i = UnityEngine.Random.Range(0, relic_objects.Count);
-        return relic_builder.BuildRelic(relic_objects[i]);
+        return relic_builder.BuildRelic(relic_objects[7]);
     }
 
     public RelicTriggers BuildTrigger(JObject trigger_object)
@@ -88,6 +88,21 @@ public class RelicManager : MonoBehaviour
         {
             UnityEngine.Debug.Log("Attempting to build spell-drop effect");
             return new SpellDrop();
+        }
+        else if (trigger_type == "wave-start")
+        {
+            UnityEngine.Debug.Log("Attempting to build wave-start trigger");
+            return new WaveStart();
+        }
+        else if (trigger_type == "wave-complete")
+        {
+            UnityEngine.Debug.Log("Attempting to build wave-complete trigger");
+            return new WaveComplete();
+        }
+        else if (trigger_type == "enemy-damage")
+        {
+            UnityEngine.Debug.Log("Attempting to build enemy-damage trigger");
+            return new EnemyDamage();
         }
 
         return new RelicTriggers();
@@ -130,6 +145,12 @@ public class RelicManager : MonoBehaviour
             UnityEngine.Debug.Log("Attempting to build regain-hp effect");
             amount = effect_object["amount"].ToObject<string>();
             return new RegainHP(amount, player);
+        }
+        else if (effect_type == "gain-max-hp")
+        {
+            UnityEngine.Debug.Log("Attempting to build gain-max-hp effect");
+            amount = effect_object["amount"].ToObject<string>();
+            return new GainMaxHP(amount, player);
         }
 
         return new RelicEffects();

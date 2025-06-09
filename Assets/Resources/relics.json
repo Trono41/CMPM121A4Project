@@ -105,7 +105,7 @@
         },
         "effect": {
             "description": "gain 50 additional spellpower for 30 seconds.",
-            "type": "gain-spellpower",
+            "type": "gain-temp-spellpower",
             "amount": 50,
             "until": "duration"
         }
