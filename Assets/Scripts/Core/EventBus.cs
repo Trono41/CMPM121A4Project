@@ -14,8 +14,14 @@ public class EventBus
         }
     }
 
+    public event Action OnWaveStart;
     public event Action OnWaveEnd;
     public event Action OnThirdWave;
+
+    public void DoWaveStart()
+    {
+        OnWaveStart?.Invoke();
+    }
 
     public void DoWaveEnd()
     {
@@ -30,7 +36,7 @@ public class EventBus
     //RelicTrigger Events
 
     public event Action<Vector3, Damage, Hittable> OnDamage;
-
+    public event Action OnEnemyTakeDamage;
     public event Action OnTakeDamage;
     public event Action OnEnemyDeath;
     public event Action OnStandStill;
@@ -42,6 +48,12 @@ public class EventBus
     public void DoDamage(Vector3 where, Damage dmg, Hittable target)
     {
         OnDamage?.Invoke(where, dmg, target);
+        DoEnemyTakeDamage();
+    }
+
+    public void DoEnemyTakeDamage()
+    {
+        OnEnemyTakeDamage?.Invoke();
     }
 
     public void DoTakeDamage()
