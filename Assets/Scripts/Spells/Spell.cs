@@ -182,7 +182,7 @@ public class Spell
     virtual public Action<Hittable, Vector3> GetOnHit(SpellModifiers mods)
     {
 
-        Damage dmg = new Damage(GetDamage(mods), Damage.Type.ARCANE);
+        Damage dmg = new Damage(GetDamage(mods), damage_type);
 
         void OnHit(Hittable other, Vector3 impact)
         {

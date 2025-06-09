@@ -4,48 +4,62 @@
        "sprite": 0,
        "hp": 20,
        "speed": 5,
-       "damage": 5
+       "damage": 5,
+       "resistance": "arcane",
+       "weakness": "ice"
    },
    {
        "name": "skeleton",
        "sprite": 1,
        "hp": 30,
        "speed": 7,
-       "damage": 10
+       "damage": 10,
+       "resistance": "arcane",
+       "weakness": "ice"
    },  
    {
        "name": "warlock",
        "sprite": 4,
        "hp": 30,
        "speed": 7,
-       "damage": 10
+       "damage": 10,
+       "resistance": "arcane",
+       "weakness": "ice"
    },
    {
        "name": "wendigo",
        "sprite": 15,
        "hp:": 50,
        "speed": 4,
-       "damage": 15
+       "damage": 15,
+       "resistance": "arcane",
+       "weakness": "ice"
    },
    {
        "name": "wolf",
        "sprite": 23,
        "hp": 10,
        "speed": 10,
-       "damage": 10
+       "damage": 10,
+       "resistance": "ice",
+       "weakness": "arcane"
    },
    {
        "name": "ghoul",
        "sprite": 19,
        "hp": 10,
        "speed": 5,
-       "damage": 1
+       "damage": 1,
+       "resistance": "arcane",
+       "weakness": "ice"
    },
    {
        "name": "eye",
        "sprite": 5,
        "hp": 20,
        "speed": 12,
-       "damage": 5
+       "damage": 5,
+       "resistance": "arcane",
+       "weakness": "ice"
    }
 ]

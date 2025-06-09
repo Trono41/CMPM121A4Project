@@ -90,12 +90,23 @@ public class IceBolt : Spell
     public override Action<Hittable, Vector3> GetOnHit(SpellModifiers mods)
     {
 
-        Damage dmg = new Damage(GetDamage(mods), Damage.Type.ARCANE);
+        Damage dmg = new Damage(GetDamage(mods), damage_type);
 
         void OnHit(Hittable other, Vector3 impact)
         {
             if (other.team != team)
             {
+                var ec = other.owner.GetComponent<EnemyController>();
+                Debug.Log("Enemy's resistance: " + ec.resistance.ToString());
+                Debug.Log("Enemy's weakness: " + ec.weakness.ToString());
+                if (ec.resistance == damage_type)
+                {
+                    dmg.amount -= 10;
+                }
+                if (ec.weakness == damage_type)
+                {
+                    dmg.amount += 10;
+                }
                 other.Damage(dmg);
                 int stunDuration = rpnEval.Eval(duration, variables);
                 CoroutineManager.Instance.StartCoroutine(Freeze(stunDuration, other));
