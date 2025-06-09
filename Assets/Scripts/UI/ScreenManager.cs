@@ -12,8 +12,22 @@ public class ScreenManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        // Initialize curr_screen with a default screen if ClassSelectorScreen is not found
         curr_screen = GameObject.Find("ClassSelectorScreen");
-        EventBus.Instance.OnWaveEnd += SetRewardScreen;
+        if (curr_screen == null && screens != null && screens.Length > 0)
+        {
+            curr_screen = screens[0];
+            Debug.LogWarning("ClassSelectorScreen not found, using first screen in array as default");
+        }
+        
+        if (EventBus.Instance != null)
+        {
+            EventBus.Instance.OnWaveEnd += SetRewardScreen;
+        }
+        else
+        {
+            Debug.LogError("EventBus.Instance is null!");
+        }
     }
 
     // Update is called once per frame
@@ -21,9 +35,16 @@ public class ScreenManager : MonoBehaviour
     {
         if (GameManager.Instance.state == GameManager.GameState.WAVEEND)
         {
-            SwitchScreen(screens[3]);
+            if (screens != null && screens.Length > 3 && screens[3] != null)
+            {
+                SwitchScreen(screens[3]);
+            }
+            else
+            {
+                Debug.LogError("Reward screen (screens[3]) is not set in the inspector!");
+            }
         }
-        else
+        else if (screens != null && screens.Length > 3 && screens[3] != null)
         {
             screens[3].SetActive(false);
         }
@@ -31,6 +52,18 @@ public class ScreenManager : MonoBehaviour
 
     public void SwitchScreen(GameObject new_screen)
     {
+        if (curr_screen == null)
+        {
+            Debug.LogError("Current screen is null!");
+            return;
+        }
+        
+        if (new_screen == null)
+        {
+            Debug.LogError("New screen is null!");
+            return;
+        }
+
         curr_screen.SetActive(false);
         new_screen.SetActive(true);
         curr_screen = new_screen;
@@ -38,7 +71,14 @@ public class ScreenManager : MonoBehaviour
 
     public void SetRewardScreen()
     {
-        SwitchScreen(screens[3]);
+        if (screens != null && screens.Length > 3 && screens[3] != null)
+        {
+            SwitchScreen(screens[3]);
+        }
+        else
+        {
+            Debug.LogError("Reward screen (screens[3]) is not set in the inspector!");
+        }
     }
     
 }
