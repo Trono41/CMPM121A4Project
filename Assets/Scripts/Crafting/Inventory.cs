@@ -11,9 +11,9 @@ public class Inventory<T>
 
     }
 
-    public void Add()
+    public void Add(T item)
     {
-
+        stored_items.Add(item);
     }
 
     public void Remove()

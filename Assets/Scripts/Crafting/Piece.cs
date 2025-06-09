@@ -10,6 +10,11 @@ public class Piece<T>
         this.item = item;
     }
 
+    public T GetItem()
+    {
+        return item;
+    }
+
     public Type Type()
     {
         return item.GetType();
