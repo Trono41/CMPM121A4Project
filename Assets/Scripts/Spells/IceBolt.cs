@@ -101,11 +101,11 @@ public class IceBolt : Spell
                 Debug.Log("Enemy's weakness: " + ec.weakness.ToString());
                 if (ec.resistance == damage_type)
                 {
-                    dmg.amount -= 10;
+                    dmg.amount /= 2;
                 }
                 if (ec.weakness == damage_type)
                 {
-                    dmg.amount += 10;
+                    dmg.amount *= 2;
                 }
                 other.Damage(dmg);
                 int stunDuration = rpnEval.Eval(duration, variables);

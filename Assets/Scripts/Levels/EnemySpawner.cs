@@ -37,8 +37,6 @@ public class Spawn
     public string hp = "base"; // Modify the properties of the spawned enemy
     public string speed = "base";
     public string damage = "base";
-    public string resistance = "base";
-    public string weakness = "base";
 
     void Start()
     {
@@ -161,7 +159,7 @@ public class EnemySpawner : MonoBehaviour
         foreach (Spawn spawn in level.spawns) // For each enemy type . . .
         {
             spawnersActive++;
-            StartCoroutine(SpawnEnemies(spawn.enemy, spawn.count, spawn.delay, spawn.location, spawn.hp, spawn.speed, spawn.damage, spawn.resistance, spawn.weakness, spawn.sequence, wave));
+            StartCoroutine(SpawnEnemies(spawn.enemy, spawn.count, spawn.delay, spawn.location, spawn.hp, spawn.speed, spawn.damage, spawn.sequence, wave));
         }
 
         yield return new WaitWhile(() => (spawnersActive > 0));
@@ -179,7 +177,7 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    IEnumerator SpawnEnemies(string e, string count, string delay, string location, string hp, string speed, string damage, string resistance, string weakness, List<int> sequence, int wave)
+    IEnumerator SpawnEnemies(string e, string count, string delay, string location, string hp, string speed, string damage, List<int> sequence, int wave)
     {
         int n = 0;
         int seq = 0;
@@ -199,7 +197,7 @@ public class EnemySpawner : MonoBehaviour
 
             for (int i = 1; i <= required; i++)
             {
-                StartCoroutine(SpawnEnemy(e, delay, location, hp, speed, damage, resistance, weakness, wave));
+                StartCoroutine(SpawnEnemy(e, delay, location, hp, speed, damage, wave));
                 n++;
 
                 if (n == new_count)
@@ -219,7 +217,7 @@ public class EnemySpawner : MonoBehaviour
         spawnersActive--;
     }
 
-    IEnumerator SpawnEnemy(string e, string delay, string location, string hp, string speed, string damage, string resistance, string weakness, int wave)
+    IEnumerator SpawnEnemy(string e, string delay, string location, string hp, string speed, string damage, int wave)
     {
         Enemy enemyObject = enemy_types[e];
 
@@ -285,10 +283,8 @@ public class EnemySpawner : MonoBehaviour
         variables["base"] = enemyObject.damage;
         en.damage = rpn.Eval(damage, variables);
 
-        Debug.Log("en.resistance " + resistance);
-        Debug.Log("en.weakness " + weakness);
-        en.resistance = Damage.TypeFromString(resistance);
-        en.weakness = Damage.TypeFromString(weakness);
+        en.resistance = Damage.TypeFromString(enemyObject.resistance);
+        en.weakness = Damage.TypeFromString(enemyObject.weakness);
 
         GameManager.Instance.AddEnemy(new_enemy);
 
