@@ -10,7 +10,7 @@
    },
    "magic_missile":  {
        "name": "Magic Missile",
-       "description": "A homing bolt.",
+       "description": "A homing bolt of arcane energy.",
        "icon": 4,
        "damage": {"amount": "10 power 3 / +", "type": "arcane"},
        "mana_cost": "20",
@@ -58,6 +58,45 @@
        "mana_cost": "10 power 5 / +",
        "cooldown": "2.5",
        "projectile": {"trajectory": "straight", "speed": "8", "sprite": 0}
+   },
+   "fireball":  {
+       "name": "Fireball",
+       "description": "A ball of flame that shatters into damaging cinders on impact with an enemy.",
+       "icon": 5,
+       "N": "8 power 5 / +",
+       "damage": {"amount": "25 power 3 / +", "type": "fire"},
+       "secondary_damage": "8 power 10 / +",
+       "mana_cost": "15 power 5 / +",
+       "cooldown": "1.5",
+       "projectile": {"trajectory": "straight", "speed": "10", "sprite": 0},
+       "secondary_projectile": {"trajectory": "straight", "speed": "20", "lifetime": "0.1", "sprite": 0}
+   },
+   "spear_of_light": {
+       "name": "Spear of Light",
+       "description": "A quick moving shard of pure light.",
+       "icon": 13,
+       "damage": {"amount": "20 power 5 / +", "type": "light"},
+       "mana_cost": "15",
+       "cooldown": "3",
+       "projectile": {"trajectory": "straight", "speed": "8 power 4 / +", "sprite": 0}
+   },
+   "black_bolt": {
+       "name": "Black Bolt",
+       "description": "A slow, homing bolt of pure darkness.",
+       "icon": 17,
+       "damage": {"amount": "30 power 3 / +", "type": "dark"},
+       "mana_cost": "25",
+       "cooldown": "4",
+       "projectile": {"trajectory": "homing", "speed": "5", "sprite": 0}
+   },
+   "leaf_bolt":  {
+       "name": "Leaf Bolt",
+       "description": "A razor-sharp bolt of leaves.",
+       "icon": 16,
+       "damage": {"amount": "25 power 4 / +", "type": "nature"},
+       "mana_cost": "12",
+       "cooldown": "2",
+       "projectile": {"trajectory": "straight", "speed": "8 power 5 / +", "sprite": 0}
    },
    "damage_amp": {
        "name": "Damage-Amplified",

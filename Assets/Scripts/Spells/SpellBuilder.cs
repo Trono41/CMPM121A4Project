@@ -48,6 +48,14 @@ public class SpellBuilder
             return new IceBolt();
         else if (name == "arcane_slow")
             return new ArcaneSlow();
+        else if (name == "fireball")
+            return new Fireball();
+        else if (name == "spear_of_light")
+            return new ArcaneSlow();
+        else if (name == "black_bolt")
+            return new ArcaneSlow();
+        else if (name == "leaf_bolt")
+            return new ArcaneSlow();
 
         else if (name == "damage_amp")
         {
@@ -86,10 +94,10 @@ public class SpellBuilder
         {
             return new Heavy();
         }
-        /*else if (name == "bounce")
+        else if (name == "bounce")
         {
             return new Bounce();
-        }*/
+        }
 
         return new ArcaneBolt();
     }

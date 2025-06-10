@@ -189,8 +189,6 @@ public class Spell
             if (other.team != team)
             {
                 var ec = other.owner.GetComponent<EnemyController>();
-                Debug.Log("Enemy's resistance: " + ec.resistance.ToString());
-                Debug.Log("Enemy's weakness: " + ec.weakness.ToString());
                 if (ec.resistance == damage_type)
                 {
                     dmg.amount /= 2;
