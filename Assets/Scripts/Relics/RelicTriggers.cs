@@ -9,7 +9,7 @@ using UnityEngine.Rendering.Universal;
 using System.Diagnostics;
 using System.Collections;
 
-public class RelicTriggers
+public class RelicTriggers : RelicPart
 {
 
     protected RPNEvaluator rpn = new RPNEvaluator();
@@ -41,8 +41,9 @@ public class EnemyDeath : RelicTriggers
 {
     RelicEffects effect = new RelicEffects();
 
-    public EnemyDeath()
+    public EnemyDeath(int sprite)
     {
+        this.sprite = sprite;
         EventBus.Instance.OnEnemyDeath += ApplyEffect;
     }
 
@@ -83,9 +84,10 @@ public class StandStill : RelicTriggers
 {
     RelicEffects effect = new RelicEffects();
 
-    public StandStill(string amount, PlayerController owner)
+    public StandStill(string amount, int sprite, PlayerController owner)
     {
         this.amount = rpn.Eval(amount, variables);
+        this.sprite = sprite;
         EventBus.Instance.OnStandStill += StartTimer;
         this.owner = owner;
 
@@ -152,8 +154,9 @@ public class TakeDamage : RelicTriggers
 {
     RelicEffects effect = new RelicEffects();
 
-    public TakeDamage()
+    public TakeDamage(int sprite)
     {
+        this.sprite = sprite;
         EventBus.Instance.OnTakeDamage += ApplyEffect;
     }
 
@@ -202,8 +205,9 @@ public class MaxMana : RelicTriggers
 {
     RelicEffects effect = new RelicEffects();
 
-    public MaxMana(PlayerController owner)
+    public MaxMana(int sprite, PlayerController owner)
     {
+        this.sprite = sprite;
         this.owner = owner;
         EventBus.Instance.OnMaxMana += ApplyEffect;
     }
@@ -253,8 +257,9 @@ public class SpellDrop : RelicTriggers
 {
     RelicEffects effect = new RelicEffects();
 
-    public SpellDrop()
+    public SpellDrop(int sprite)
     {
+        this.sprite = sprite;
         EventBus.Instance.OnSpellDrop += ApplyEffect;
         UnityEngine.Debug.Log("SpellDrop event sent.");
     }
@@ -275,8 +280,9 @@ public class WaveStart : RelicTriggers
 {
     RelicEffects effect = new RelicEffects();
 
-    public WaveStart()
+    public WaveStart(int sprite)
     {
+        this.sprite = sprite;
         EventBus.Instance.OnWaveStart += ApplyEffect;
         UnityEngine.Debug.Log("WaveStart event sent");
     }
@@ -313,8 +319,9 @@ public class WaveComplete : RelicTriggers
 {
     RelicEffects effect = new RelicEffects();
 
-    public WaveComplete()
+    public WaveComplete(int sprite)
     {
+        this.sprite = sprite;
         EventBus.Instance.OnWaveEnd += ApplyEffect;
         UnityEngine.Debug.Log("WaveComplete event sent");
     }
@@ -335,8 +342,9 @@ public class EnemyDamage : RelicTriggers
 {
     RelicEffects effect = new RelicEffects();
 
-    public EnemyDamage()
+    public EnemyDamage(int sprite)
     {
+        this.sprite = sprite;
         EventBus.Instance.OnEnemyTakeDamage += ApplyEffect;
         UnityEngine.Debug.Log("EnemyDamage event sent");
     }

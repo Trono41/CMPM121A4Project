@@ -4,10 +4,12 @@
         "sprite": 0,
         "trigger": {
             "description": "Whenever you take damage",
+            "sprite": 0,
             "type": "take-damage"
         },
         "effect": {
             "description": "you gain 5 mana",
+            "sprite": 1,
             "type": "gain-mana",
             "amount": "5"
         }
@@ -17,11 +19,13 @@
         "sprite": 1,
         "trigger": {
             "description": "When you don't move for 3 seconds",
+            "sprite": 2,
             "type": "stand-still",
             "amount": "3"
         },
         "effect": {
             "description": "you gain 10 spellpower (+5/wave)",
+            "sprite": 3,
             "type": "gain-temp-spellpower",
             "amount": "10 wave 5 * +",
             "until": "move"
@@ -32,10 +36,12 @@
         "sprite": 2,
         "trigger": {
             "description": "When you take damage",
+            "sprite": 0,
             "type": "take-damage"
         },
         "effect": {
             "description": "your next spell gains 100 additional spellpower.",
+            "sprite": 3,
             "type": "gain-temp-spellpower",
             "amount": "100",
             "until": "cast-spell"
@@ -46,10 +52,12 @@
         "sprite": 3,
         "trigger": {
             "description": "When you kill an enemy",
+            "sprite": 4,
             "type": "on-kill"
         },
         "effect": {
             "description": "you gain 10 mana.",
+            "sprite": 1,
             "type": "gain-mana",
             "amount": "10"
         }
@@ -59,11 +67,13 @@
         "sprite": 5,
         "trigger": {
             "description": "While you have max mana",
+            "sprite": 5,
             "type": "on-max-mana",
             "until": "cast-spell"
         },
         "effect": {
             "description": "the damage you take is reduced by 50%.",
+            "sprite": 6,
             "type": "gain-defense",
             "amount": "0.5",
             "until": "cast-spell"
@@ -74,10 +84,12 @@
         "sprite": 7,
         "trigger": {
             "description": "When you kill an enemy",
+            "sprite": 4,
             "type": "on-kill"
         },
         "effect": {
             "description": "you restore 10 HP.",
+            "sprite": 7,
             "type": "regain-hp",
             "amount": "10"
         }
@@ -87,10 +99,12 @@
         "sprite": 13,
         "trigger": {
             "description": "When you drop a spell",
+            "sprite": 8,
             "type": "on-spell-drop"
         },
         "effect": {
             "description": "you gain a permanent increase to your spellpower.",
+            "sprite": 9,
             "type": "gain-spellpower",
             "amount": "10",
             "until": "permanent"
@@ -101,10 +115,12 @@
         "sprite": 4,
         "trigger": {
             "description": "When a new wave starts",
+            "sprite": 10,
             "type": "wave-start"
         },
         "effect": {
             "description": "gain 50 additional spellpower for 30 seconds.",
+            "sprite": 3,
             "type": "gain-temp-spellpower",
             "amount": 50,
             "until": "duration"
@@ -115,10 +131,12 @@
         "sprite": 6,
         "trigger": {
             "description": "Whenever you finish a wave",
+            "sprite": 11,
             "type": "wave-complete"
         },
         "effect": {
             "description": "gain 10 max hp",
+            "sprite": 12,
             "type": "gain-max-hp",
             "amount": "10"
         }
@@ -128,10 +146,12 @@
         "sprite": 8,
         "trigger": {
             "description": "Whenever you deal damage to an enemy",
+            "sprite": 13,
             "type": "enemy-damage"
         },
         "effect": {
             "description": "you replelnish 1 mana",
+            "sprite": 1,
             "type": "gain-mana",
             "amount": 1
         }

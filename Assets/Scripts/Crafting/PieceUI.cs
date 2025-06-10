@@ -8,23 +8,22 @@ using System;
 public class PieceUI : MonoBehaviour
 {
 
-    /*public Piece<> piece = new Piece<>();
-    public Piece<Relic> relic_piece = new Piece<Relic>();
+    public Spell spell_piece;
+    public RelicPart relic_piece;
     public GameObject icon;
 
-    public void SetPiece(Piece<> piece)
+    public void SetPiece(Spell piece)
     {
-        this.piece = piece;
+        this.spell_piece = piece;
 
-        if (piece.Type() == Spell() || piece.Type() == ModifierSpell())
-            GameManager.Instance.spellIconManager.PlaceSprite(piece.GetItem().GetIcon(), icon.GetComponent<Image>());
-        else if (piece.Type() == RelicTriggers() || piece.Type() == RelicEffects())
-            GameManager.Instance.relicIconManager.PlaceSprite(piece.GetItem().GetIcon(), icon.GetComponent<Image>());
-
+        GameManager.Instance.spellIconManager.PlaceSprite(spell_piece.GetIcon(), icon.GetComponent<Image>());
     }
 
-    public void AddRelic()
+    public void SetPiece(RelicPart piece)
     {
-        relic_ui_manager.AddRelic(relic);
-    }*/
+        this.relic_piece = piece;
+
+        GameManager.Instance.relicIconManager.PlaceSprite(relic_piece.GetIcon(), icon.GetComponent<Image>());
+
+    }
 }

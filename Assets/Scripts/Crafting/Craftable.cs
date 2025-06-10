@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Craftable<Piece> : MonoBehaviour
+public interface Craftable<Piece>
 {
 
 

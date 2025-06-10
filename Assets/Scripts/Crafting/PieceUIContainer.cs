@@ -4,8 +4,13 @@ public class PieceUIContainer : MonoBehaviour
 {
     public GameObject[] piece_uis;
 
-    public void SetPieceUI(Piece piece, int index)
+    public void SetPieceUI(Spell piece, int index)
     {
-        rewardRelics[index].GetComponent<RelicUI>().SetRelic(relic_to_set);
+        piece_uis[index].GetComponent<PieceUI>().SetPiece(piece);
+    }
+
+    public void SetPieceUI(RelicPart piece, int index)
+    {
+        piece_uis[index].GetComponent<PieceUI>().SetPiece(piece);
     }
 }

@@ -83,44 +83,45 @@ public class RelicManager : MonoBehaviour
     {
         string trigger_type = trigger_object["type"].ToObject<string>();
         string amount;
+        int sprite = trigger_object["sprite"].ToObject<int>();
 
         if (trigger_type == "take-damage")
         {
             UnityEngine.Debug.Log("Attempting to build take-damage trigger");
-            return new TakeDamage();
+            return new TakeDamage(sprite);
         }
         else if (trigger_type == "stand-still")
         {
             amount = trigger_object["amount"].ToObject<string>();
-            return new StandStill(amount, player);
+            return new StandStill(amount, sprite, player);
         }
         else if (trigger_type == "on-max-mana")
         {
-            return new MaxMana(player);
+            return new MaxMana(sprite, player);
         }
         else if (trigger_type == "on-kill")
         {
-            return new EnemyDeath();
+            return new EnemyDeath(sprite);
         }
         else if (trigger_type == "on-spell-drop")
         {
             UnityEngine.Debug.Log("Attempting to build spell-drop effect");
-            return new SpellDrop();
+            return new SpellDrop(sprite);
         }
         else if (trigger_type == "wave-start")
         {
             UnityEngine.Debug.Log("Attempting to build wave-start trigger");
-            return new WaveStart();
+            return new WaveStart(sprite);
         }
         else if (trigger_type == "wave-complete")
         {
             UnityEngine.Debug.Log("Attempting to build wave-complete trigger");
-            return new WaveComplete();
+            return new WaveComplete(sprite);
         }
         else if (trigger_type == "enemy-damage")
         {
             UnityEngine.Debug.Log("Attempting to build enemy-damage trigger");
-            return new EnemyDamage();
+            return new EnemyDamage(sprite);
         }
 
         return new RelicTriggers();
@@ -130,48 +131,60 @@ public class RelicManager : MonoBehaviour
     {
         string effect_type = effect_object["type"].ToObject<string>();
         string amount;
+        int sprite = effect_object["sprite"].ToObject<int>();
         string until;
 
         if (effect_type == "gain-mana")
         {
             amount = effect_object["amount"].ToObject<string>();
-            return new GainMana(amount, player);
+            return new GainMana(amount, sprite, player);
         }
         else if (effect_type == "gain-spellpower")
         {
             UnityEngine.Debug.Log("Attempting to build gain-spellpower effect");
             amount = effect_object["amount"].ToObject<string>();
             until = effect_object["until"].ToObject<string>();
-            return new GainSpellPower(amount, until, player);
+            return new GainSpellPower(amount, sprite, until, player);
         }
         else if (effect_type == "gain-temp-spellpower")
         {
             UnityEngine.Debug.Log("Attempting to build gain-spellpower effect");
             amount = effect_object["amount"].ToObject<string>();
             until = effect_object["until"].ToObject<string>();
-            return new GainTempSpellPower(amount, until, player);
+            return new GainTempSpellPower(amount, sprite, until, player);
         }
         else if (effect_type == "gain-defense")
         {
             UnityEngine.Debug.Log("Attempting to build gain-defense effect");
             amount = effect_object["amount"].ToObject<string>();
             until = effect_object["until"].ToObject<string>();
-            return new GainDefense(amount, until, player);
+            return new GainDefense(amount, sprite, until, player);
         }
         else if (effect_type == "regain-hp")
         {
             UnityEngine.Debug.Log("Attempting to build regain-hp effect");
             amount = effect_object["amount"].ToObject<string>();
-            return new RegainHP(amount, player);
+            return new RegainHP(amount, sprite, player);
         }
         else if (effect_type == "gain-max-hp")
         {
             UnityEngine.Debug.Log("Attempting to build gain-max-hp effect");
             amount = effect_object["amount"].ToObject<string>();
-            return new GainMaxHP(amount, player);
+            return new GainMaxHP(amount, sprite, player);
         }
 
         return new RelicEffects();
     }
 
+}
+
+public class RelicPart
+{
+
+    protected int sprite;
+
+    public int GetIcon()
+    {
+        return sprite;
+    }
 }

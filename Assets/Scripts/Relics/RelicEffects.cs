@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 using System.Collections.Generic;
 using System;
 
-public class RelicEffects
+public class RelicEffects : RelicPart
 {
     protected RPNEvaluator rpn = new RPNEvaluator();
     protected Dictionary<string, int> variables = new Dictionary<string, int>();
@@ -27,9 +27,10 @@ public class RelicEffects
 
 public class GainMana : RelicEffects
 {
-    public GainMana(string amount, PlayerController owner)
+    public GainMana(string amount, int sprite, PlayerController owner)
     {
         this.amount = rpn.Eval(amount, variables);
+        this.sprite = sprite;
         this.owner = owner;
     }
 
@@ -42,10 +43,11 @@ public class GainMana : RelicEffects
 
 public class GainSpellPower : RelicEffects
 {
-    public GainSpellPower(string amount, string until, PlayerController owner)
+    public GainSpellPower(string amount, int sprite, string until, PlayerController owner)
     {
         variables["wave"] = GameManager.Instance.GetWave();
         this.amount = rpn.Eval(amount, variables);
+        this.sprite = sprite;
         this.until = until;
         this.owner = owner;
     }
@@ -65,10 +67,11 @@ public class GainSpellPower : RelicEffects
 
 public class GainTempSpellPower : RelicEffects
 {
-    public GainTempSpellPower(string amount, string until, PlayerController owner)
+    public GainTempSpellPower(string amount, int sprite, string until, PlayerController owner)
     {
         variables["wave"] = GameManager.Instance.GetWave();
         this.amount = rpn.Eval(amount, variables);
+        this.sprite = sprite;
         this.until = until;
         this.owner = owner;
     }
@@ -90,10 +93,11 @@ public class GainDefense : RelicEffects
 {
     float defense_multiplier;
 
-    public GainDefense(string amount, string until, PlayerController owner)
+    public GainDefense(string amount, int sprite, string until, PlayerController owner)
     {
         variables["wave"] = GameManager.Instance.GetWave();
         defense_multiplier = rpn.EvalFloat(amount, variables);
+        this.sprite = sprite;
         this.owner = owner;
         this.until = until;
     }
@@ -113,9 +117,10 @@ public class GainDefense : RelicEffects
 
 public class RegainHP : RelicEffects
 {
-    public RegainHP(string amount, PlayerController owner)
+    public RegainHP(string amount, int sprite, PlayerController owner)
     {
         this.amount = rpn.Eval(amount, variables);
+        this.sprite = sprite;
         this.owner = owner;
     }
 
@@ -133,9 +138,10 @@ public class RegainHP : RelicEffects
 
 public class GainMaxHP : RelicEffects
 {
-    public GainMaxHP(string amount, PlayerController owner)
+    public GainMaxHP(string amount, int sprite, PlayerController owner)
     {
         this.amount = rpn.Eval(amount, variables);
+        this.sprite = sprite;
         this.owner = owner;
     }
 
