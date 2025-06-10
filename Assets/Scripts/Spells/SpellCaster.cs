@@ -42,7 +42,7 @@ public class SpellCaster
         this.mana_reg = mana_reg;
         this.spellpower = spellpower;
         this.team = team;
-        spell = spellbuilder.BuildSpell("arcane_bolt", this);
+        spell = spellbuilder.BuildSpell("leaf_bolt", this);
 
         spellUIContainer = GameObject.FindGameObjectsWithTag("spelluicontainer")[0].GetComponent<SpellUIContainer>();
 

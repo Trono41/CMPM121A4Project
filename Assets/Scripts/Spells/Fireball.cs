@@ -1,12 +1,13 @@
-using UnityEngine;
 using Newtonsoft.Json.Linq;
-using Newtonsoft.Json;
-using System.Collections.Generic;
-using TMPro;
 using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
+using UnityEngine.U2D;
 using System;
 
-public class ArcaneBlast : Spell
+public class Fireball : Spell
 {
     RPNEvaluator rpnEval = new RPNEvaluator();
     string N;
@@ -14,7 +15,7 @@ public class ArcaneBlast : Spell
     Dictionary<string, string> secondary_projectile = new Dictionary<string, string>();
     Dictionary<string, int> variables = new Dictionary<string, int>();
 
-    public ArcaneBlast()
+    public Fireball()
     {
 
     }

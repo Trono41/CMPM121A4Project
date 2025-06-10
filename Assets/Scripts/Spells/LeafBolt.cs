@@ -6,12 +6,12 @@ using TMPro;
 using System.Collections;
 using System;
 
-public class ArcaneBolt : Spell
+public class LeafBolt : Spell
 {
     RPNEvaluator rpnEval = new RPNEvaluator();
     Dictionary<string, int> variables = new Dictionary<string, int>();
 
-    public ArcaneBolt()
+    public LeafBolt()
     {
 
     }
