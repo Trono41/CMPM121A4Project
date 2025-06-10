@@ -5,8 +5,8 @@
        "hp": 20,
        "speed": 5,
        "damage": 5,
-       "resistance": "arcane",
-       "weakness": "ice"
+       "resistance": "nature",
+       "weakness": "fire"
    },
    {
        "name": "skeleton",
@@ -14,8 +14,8 @@
        "hp": 30,
        "speed": 7,
        "damage": 10,
-       "resistance": "arcane",
-       "weakness": "ice"
+       "resistance": "dark",
+       "weakness": "light"
    },  
    {
        "name": "warlock",
@@ -32,8 +32,8 @@
        "hp:": 50,
        "speed": 4,
        "damage": 15,
-       "resistance": "arcane",
-       "weakness": "ice"
+       "resistance": "ice",
+       "weakness": "light"
    },
    {
        "name": "wolf",
@@ -42,7 +42,7 @@
        "speed": 10,
        "damage": 10,
        "resistance": "ice",
-       "weakness": "arcane"
+       "weakness": "fire"
    },
    {
        "name": "ghoul",
@@ -51,7 +51,7 @@
        "speed": 5,
        "damage": 1,
        "resistance": "arcane",
-       "weakness": "ice"
+       "weakness": "dark"
    },
    {
        "name": "eye",
@@ -59,7 +59,25 @@
        "hp": 20,
        "speed": 12,
        "damage": 5,
-       "resistance": "arcane",
+       "resistance": "light",
+       "weakness": "dark"
+   },
+   {
+       "name": "wisp",
+       "sprite": 3,
+       "hp": 15,
+       "speed": 12,
+       "damage": 5,
+       "resistance": "fire",
        "weakness": "ice"
+   },
+   {
+       "name": "gorgon",
+       "sprite": 7,
+       "hp": 50,
+       "speed": 4,
+       "damage": 20,
+       "resistance": "fire",
+       "weakness": "nature"
    }
 ]

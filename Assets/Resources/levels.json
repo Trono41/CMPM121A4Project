@@ -26,8 +26,8 @@
             },
             {
                 "enemy": "wendigo",
-                "count": "wave 5 /",
-                "hp": "100 25 wave * +",
+                "count": "wave 4 / 1 wave 4 % - *",
+                "hp": "75 15 wave * +",
                 "location": "random bone"
             },
             {
@@ -35,15 +35,22 @@
                 "count": "1 wave 2 / +",
                 "hp": "base wave 2 * +",
                 "delay": "5",
-                "sequence": [1,3],
+                "sequence": [1,2,1],
                 "location": "random green"
             },
             {
                 "enemy": "eye",
                 "count": "wave 2 /",
                 "hp": "20 5 wave * +",
-                "sequence": [2, 2],
+                "sequence": [2,2],
                 "location": "random"
+            },
+            {
+                "enemy": "wisp",
+                "count": "wave 2 /",
+                "hp": "base wave +",
+                "sequence": [2,2,4],
+                "location": "random red"
             }
         ]
    },
@@ -69,14 +76,14 @@
             {
                 "enemy": "warlock",
                 "count": "wave 5 / 1 wave 5 % - *",
-                "hp": "75 50 wave *",
+                "hp": "75 50 wave * +",
                 "damage": "base 10 +",
                 "location": "random bone"
             },       
             {
                 "enemy": "wendigo",
-                "count": "wave 5 /",
-                "hp": "100 25 wave * +",
+                "count": "wave 7 / 1 wave 7 % - *",
+                "hp": "150 25 wave * +",
                 "location": "random bone"
             },
             {
@@ -93,6 +100,19 @@
                 "hp": "20 5 wave * +",
                 "sequence": [2, 2],
                 "location": "random"
+            },
+            {
+                "enemy": "wisp",
+                "count": "wave 2 / 2 *",
+                "hp": "base wave +",
+                "sequence": [2,2,4],
+                "location": "random red"
+            },
+            {
+                "enemy": "gorgon",
+                "count": "wave 5 / 1 wave 10 % - *",
+                "hp": "150 wave 50 * +",
+                "location": "random green"
             }
         ]
    },
@@ -123,8 +143,8 @@
             },
             {
                 "enemy": "wendigo",
-                "count": "wave 5 /",
-                "hp": "100 25 wave * +",
+                "count": "wave 7 / 1 wave 7 % - *",
+                "hp": "150 25 wave * +",
                 "location": "random bone"
             },
             {
@@ -149,6 +169,19 @@
                 "hp": "20 5 wave * +",
                 "sequence": [2, 2],
                 "location": "random"
+            },
+            {
+                "enemy": "wisp",
+                "count": "wave 2 / 2 *",
+                "hp": "base wave +",
+                "sequence": [2,2,4],
+                "location": "random red"
+            },
+            {
+                "enemy": "gorgon",
+                "count": "wave 5 / 1 wave 10 % - *",
+                "hp": "150 wave 50 * +",
+                "location": "random green"
             }
         ]
    }
