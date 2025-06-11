@@ -8,6 +8,7 @@ public class PiecePanelClick : MonoBehaviour, IPointerClickHandler
     private Image icon;
     private GameObject highlight;
     private bool isSelected;
+    private Craftable craftable;
 
     void Start()
     {
@@ -31,16 +32,35 @@ public class PiecePanelClick : MonoBehaviour, IPointerClickHandler
             Debug.LogError($"No Image component found in children of {gameObject.name}");
         }
         
+        // Find or create the highlight object
         highlight = transform.Find("Highlight")?.gameObject;
         if (highlight == null)
         {
-            Debug.LogWarning($"No Highlight GameObject found in {gameObject.name}");
+            Debug.Log($"Creating Highlight GameObject for {gameObject.name}");
+            highlight = new GameObject("Highlight");
+            highlight.transform.SetParent(transform, false);
+            
+            // Add Image component for the highlight
+            Image highlightImage = highlight.AddComponent<Image>();
+            highlightImage.color = new Color(1f, 1f, 1f, 0.5f); // Semi-transparent white
+            
+            // Set the highlight to be the same size as the parent
+            RectTransform highlightRect = highlight.GetComponent<RectTransform>();
+            RectTransform parentRect = GetComponent<RectTransform>();
+            highlightRect.anchorMin = Vector2.zero;
+            highlightRect.anchorMax = Vector2.one;
+            highlightRect.sizeDelta = Vector2.zero;
+            highlightRect.anchoredPosition = Vector2.zero;
         }
         
         // Initialize highlight state
-        if (highlight != null)
+        highlight.SetActive(false);
+
+        // Find the Craftable component
+        craftable = FindObjectOfType<Craftable>();
+        if (craftable == null)
         {
-            highlight.SetActive(false);
+            Debug.LogError("Craftable component not found in scene!");
         }
     }
 
@@ -59,111 +79,28 @@ public class PiecePanelClick : MonoBehaviour, IPointerClickHandler
             return;
         }
 
+        if (craftable == null)
+        {
+            Debug.LogError("Craftable component not found!");
+            return;
+        }
+
         // Handle spell pieces
         if (pieceUI.spell_piece != null)
         {
-            HandleSpellClick(pieceUI.spell_piece);
+            craftable.ShowSpellPiece(gameObject);
+            SetSelected(true);
         }
         // Handle relic pieces
         else if (pieceUI.relic_piece != null)
         {
-            HandleRelicClick(pieceUI.relic_piece);
+            craftable.ShowRelicPiece(gameObject);
+            SetSelected(true);
         }
         else
         {
             Debug.LogError($"No spell or relic piece found on {gameObject.name}");
         }
-    }
-
-    private void HandleSpellClick(Spell spell)
-    {
-        if (GameManager.Instance == null || GameManager.Instance.player == null)
-        {
-            Debug.LogError("GameManager or player not found");
-            return;
-        }
-
-        PlayerController playerController = GameManager.Instance.player.GetComponent<PlayerController>();
-        if (playerController == null)
-        {
-            Debug.LogError("PlayerController not found");
-            return;
-        }
-
-        Debug.Log($"Current spell pieces count: {playerController.spell_pieces.Count}");
-        
-        // Check if we can add more pieces
-        if (playerController.spell_pieces.Count < 3) // Max 3 pieces (2 modifiers + 1 base)
-        {
-            // If it's a modifier, it must go in the first two slots
-            if (spell.IsModifier() && playerController.spell_pieces.Count >= 2)
-            {
-                Debug.Log("Cannot add more modifiers. Maximum of 2 modifiers allowed.");
-                return;
-            }
-            // If it's a base spell, it must go in the last slot
-            else if (!spell.IsModifier() && playerController.spell_pieces.Count < 2)
-            {
-                Debug.Log("Must add modifiers before adding base spell.");
-                return;
-            }
-
-            Debug.Log($"Adding spell to player's pieces: {spell.GetType().Name}");
-            // Add the piece to the player's inventory
-            playerController.spell_pieces.Add(spell);
-
-            // Update the crafting panel
-            CraftingScreenManager manager = FindObjectOfType<CraftingScreenManager>();
-            if (manager != null)
-            {
-                Debug.Log("Updating crafting panel");
-                manager.DoSpellPieces();
-            }
-            else
-            {
-                Debug.LogError("CraftingScreenManager not found");
-            }
-
-            SetSelected(true);
-        }
-        else
-        {
-            Debug.Log("Cannot add more pieces. Maximum of 3 pieces allowed.");
-        }
-    }
-
-    private void HandleRelicClick(RelicPart relic)
-    {
-        if (GameManager.Instance == null || GameManager.Instance.player == null)
-        {
-            Debug.LogError("GameManager or player not found");
-            return;
-        }
-
-        PlayerController playerController = GameManager.Instance.player.GetComponent<PlayerController>();
-        if (playerController == null)
-        {
-            Debug.LogError("PlayerController not found");
-            return;
-        }
-
-        Debug.Log($"Adding relic to player's pieces: {relic.GetType().Name}");
-        // Add the piece to the player's inventory
-        playerController.relic_pieces.Add(relic);
-
-        // Update the crafting panel
-        CraftingScreenManager manager = FindObjectOfType<CraftingScreenManager>();
-        if (manager != null)
-        {
-            Debug.Log("Updating crafting panel");
-            manager.DoRelicPieces();
-        }
-        else
-        {
-            Debug.LogError("CraftingScreenManager not found");
-        }
-
-        SetSelected(true);
     }
 
     public void SetSelected(bool selected)
