@@ -1,17 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Craftable : MonoBehaviour
+public interface Craftable<T> where T : MonoBehaviour
 {
-    void Craft(Piece piece);
-
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
+    void Craft(T piece);
+    void Start();
+    void Update();
 }
