@@ -22,4 +22,14 @@ public class Craftable : MonoBehaviour
 
     }
 
+    public void AddPiece()
+    {
+        craftable_pieces++;
+    }
+
+    public int GetNumberOfPieces()
+    {
+        return craftable_pieces;
+    }
+
 }
