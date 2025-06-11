@@ -7,30 +7,44 @@ using System.Collections.Generic;
 
 public class CraftingScreenManager : MonoBehaviour
 {
-
     public GameObject container;
     public PieceUIContainer pieceUIContainer;
 
-    public GameObject player;
-    public PlayerController playerController;
+    private PlayerController playerController;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        playerController = player.GetComponent<PlayerController>();
-        pieceUIContainer = container.GetComponent<PieceUIContainer>();
+        if (GameManager.Instance != null && GameManager.Instance.player != null)
+        {
+            playerController = GameManager.Instance.player.GetComponent<PlayerController>();
+        }
+        
+        if (container != null)
+        {
+            pieceUIContainer = container.GetComponent<PieceUIContainer>();
+        }
 
-        EventBus.Instance.OnWaveEnd += DoSpellPieces;
+        if (EventBus.Instance != null)
+        {
+            EventBus.Instance.OnWaveEnd += DoSpellPieces;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        // Try to get player reference if not set
+        if (playerController == null && GameManager.Instance != null && GameManager.Instance.player != null)
+        {
+            playerController = GameManager.Instance.player.GetComponent<PlayerController>();
+        }
     }
 
     public void DoSpellPieces()
     {
+        if (playerController == null || pieceUIContainer == null || container == null) return;
+
         UnityEngine.Debug.Log(playerController.spell_pieces.Count);
         int i = 0;
 
@@ -47,6 +61,8 @@ public class CraftingScreenManager : MonoBehaviour
 
     public void DoRelicPieces()
     {
+        if (playerController == null || pieceUIContainer == null || container == null) return;
+
         UnityEngine.Debug.Log(playerController.spell_pieces.Count);
         int i = 0;
 

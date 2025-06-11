@@ -3,7 +3,7 @@ using UnityEngine;
 
 public interface Craftable<Piece>
 {
-
+    void Craft(Piece piece);
 
     void Start()
     {
