@@ -385,7 +385,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &36456916
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2691,7 +2691,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c6d59fb3312be747a3e3625d61037f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 1716057538}
 --- !u!1 &457295002
 GameObject:
   m_ObjectHideFlags: 0
@@ -2849,6 +2849,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellCraftPanel: {fileID: 83241941}
   relicCraftPanel: {fileID: 163783317}
+  crafting_screen_manager: {fileID: 1508581899}
 --- !u!1 &462403409
 GameObject:
   m_ObjectHideFlags: 0
@@ -5112,7 +5113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c6d59fb3312be747a3e3625d61037f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 2067326687}
 --- !u!1 &932068598
 GameObject:
   m_ObjectHideFlags: 0
@@ -5847,7 +5848,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32a505c093e0f3d419b34248678c8627, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  piece_uis: []
+  piece_uis:
+  - {fileID: 1255648923}
+  - {fileID: 1714599694}
+  - {fileID: 451082683}
+  - {fileID: 1090362506}
+  - {fileID: 1466267254}
+  - {fileID: 891536455}
+  - {fileID: 1683289733}
+  - {fileID: 1087492247}
 --- !u!1 &1010302630
 GameObject:
   m_ObjectHideFlags: 0
@@ -6329,7 +6338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c6d59fb3312be747a3e3625d61037f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 1867384751}
 --- !u!1 &1090362506
 GameObject:
   m_ObjectHideFlags: 0
@@ -6379,7 +6388,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c6d59fb3312be747a3e3625d61037f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 1800891483}
 --- !u!1 &1115058366
 GameObject:
   m_ObjectHideFlags: 0
@@ -7392,7 +7401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c6d59fb3312be747a3e3625d61037f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 1198897391}
 --- !u!1 &1256774267
 GameObject:
   m_ObjectHideFlags: 0
@@ -7972,7 +7981,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c6d59fb3312be747a3e3625d61037f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 348539573}
 --- !u!1 &1468482022
 GameObject:
   m_ObjectHideFlags: 0
@@ -8227,7 +8236,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d991abb700693af4592368be3ac17cac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  container: {fileID: 1006228450}
   pieceUIContainer: {fileID: 1006228452}
+  player: {fileID: 1718273950}
+  playerController: {fileID: 1718273952}
 --- !u!4 &1508581900
 Transform:
   m_ObjectHideFlags: 0
@@ -9646,7 +9658,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c6d59fb3312be747a3e3625d61037f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 622890122}
 --- !u!1 &1685416346
 GameObject:
   m_ObjectHideFlags: 0
@@ -9966,7 +9978,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c6d59fb3312be747a3e3625d61037f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 1242000136}
 --- !u!1 &1716057538
 GameObject:
   m_ObjectHideFlags: 0
@@ -10113,11 +10125,10 @@ MonoBehaviour:
   spellpower: 0
   defense: 0
   unit: {fileID: 0}
-  spell_pieces: []
-  relic_pieces: []
   relic_names: []
   gameOverText: {fileID: 1533559640}
   ui: {fileID: 1202924362}
+  relic_manager: {fileID: 1570750601}
 --- !u!4 &1718273953
 Transform:
   m_ObjectHideFlags: 0

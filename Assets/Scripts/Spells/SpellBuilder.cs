@@ -155,17 +155,26 @@ public class SpellBuilder
         return spell;
     }
 
-    public Spell BuildSpell(string name, SpellCaster owner)
+    public Spell BuildSpellPiece(string name, SpellCaster owner)
     {
         Spell spell = MakeSpell(name);
 
-        Debug.Log(name);
+        //UnityEngine.Debug.Log(name);
 
         JObject jobject = properties[name].Value<JObject>();
         spell.SetProperties(jobject);
         spell.SetOwner(owner);
 
-        Debug.Log(jobject);
+        return spell;
+    }
+
+    public Spell BuildSpell(string name, SpellCaster owner)
+    {
+        Spell spell = MakeSpell(name);
+
+        JObject jobject = properties[name].Value<JObject>();
+        spell.SetProperties(jobject);
+        spell.SetOwner(owner);
 
         if (spell.IsModifier())
         {

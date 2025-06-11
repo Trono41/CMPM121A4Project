@@ -16,8 +16,14 @@ public class PieceUI : MonoBehaviour
     {
         this.spell_piece = piece;
 
-        GameManager.Instance.spellIconManager.PlaceSprite(spell_piece.GetIcon(), icon.GetComponent<Image>());
-    }
+        if (spell_piece.IsModifier())
+        {
+            ModifierSpell mod_spell_piece = spell_piece as ModifierSpell;
+            GameManager.Instance.spellIconManager.PlaceSprite(mod_spell_piece.GetOwnIcon(), icon.GetComponent<Image>());
+        }
+        else
+            GameManager.Instance.spellIconManager.PlaceSprite(spell_piece.GetIcon(), icon.GetComponent<Image>());
+    }       
 
     public void SetPiece(RelicPart piece)
     {
@@ -25,5 +31,12 @@ public class PieceUI : MonoBehaviour
 
         GameManager.Instance.relicIconManager.PlaceSprite(relic_piece.GetIcon(), icon.GetComponent<Image>());
 
+    }
+
+    public void ClearPiece()
+    {
+        spell_piece = null;
+        relic_piece = null;
+        icon.GetComponent<Image>().sprite = null;
     }
 }

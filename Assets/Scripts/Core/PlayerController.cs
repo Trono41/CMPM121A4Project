@@ -40,10 +40,10 @@ public class PlayerController : MonoBehaviour
 
     public Unit unit;
 
-    // Inventory
+    // Inventories
 
-    public List<string> spell_pieces = new List<string>();
-    public List<string> relic_pieces = new List<string>();
+    public List<Spell> spell_pieces = new List<Spell>();
+    public List<RelicPart> relic_pieces = new List<RelicPart>();
 
     public List<Relic> relics = new List<Relic>();
     public List<string> relic_names = new List<string>();
@@ -54,6 +54,7 @@ public class PlayerController : MonoBehaviour
     public TextMeshProUGUI gameOverText;
 
     public RelicUIManager ui;
+    public RelicManager relic_manager;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -63,7 +64,7 @@ public class PlayerController : MonoBehaviour
         GameManager.Instance.player = gameObject;
 
         class_selector = GetComponent<ClassSelector>();
-
+        
     }
 
     public void SetClass(JToken class_stats)
@@ -102,6 +103,13 @@ public class PlayerController : MonoBehaviour
         healthui.SetHealth(hp);
         manaui.SetSpellCaster(spellcaster);
         spellui.SetSpell(spellcaster.spellbook[0]);
+
+        spell_pieces.Add(spellcaster.spellbuilder.BuildSpellPiece("arcane_bolt", spellcaster));
+        spell_pieces.Add(spellcaster.spellbuilder.BuildSpellPiece("homing", spellcaster));
+        spell_pieces.Add(spellcaster.spellbuilder.BuildSpellPiece("doubler", spellcaster));
+
+        relic_pieces.Add(relic_manager.GetTrigger());
+        relic_pieces.Add(relic_manager.GetEffect());
 
         //Debug.Log("Player HP: " + hp.hp);
         //Debug.Log("Player Mana: " + spellcaster.mana);

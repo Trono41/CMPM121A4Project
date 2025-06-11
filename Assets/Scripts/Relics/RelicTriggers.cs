@@ -44,7 +44,13 @@ public class EnemyDeath : RelicTriggers
     public EnemyDeath(int sprite)
     {
         this.sprite = sprite;
+        name = "EnemyDeath";
         EventBus.Instance.OnEnemyDeath += ApplyEffect;
+    }
+
+    override public string GetName()
+    {
+        return name;
     }
 
     override public void Register(RelicEffects effect)
@@ -88,11 +94,17 @@ public class StandStill : RelicTriggers
     {
         this.amount = rpn.Eval(amount, variables);
         this.sprite = sprite;
+        name = "StandStill";
         EventBus.Instance.OnStandStill += StartTimer;
         this.owner = owner;
 
         StartTimer();
-        UnityEngine.Debug.Log("Coroutine Started!");
+        //UnityEngine.Debug.Log("Coroutine Started!");
+    }
+
+    override public string GetName()
+    {
+        return name;
     }
 
     override public void Register(RelicEffects effect)
@@ -128,7 +140,7 @@ public class StandStill : RelicTriggers
     {
         RemoveEffect();
         CoroutineManager.Instance.Cancel(Timer());
-        UnityEngine.Debug.Log("Coroutine Restarted!");
+        //UnityEngine.Debug.Log("Coroutine Restarted!");
     }
 
     override public void ApplyEffect()
@@ -139,12 +151,12 @@ public class StandStill : RelicTriggers
 
     override public void RemoveEffect()
     {
-        UnityEngine.Debug.Log("Spell cast!");
+        //UnityEngine.Debug.Log("Spell cast!");
         if (applied)
         {
             effect.remove();
             applied = false;
-            UnityEngine.Debug.Log("Effect removed!");
+            //UnityEngine.Debug.Log("Effect removed!");
         }
     }
 
@@ -157,7 +169,13 @@ public class TakeDamage : RelicTriggers
     public TakeDamage(int sprite)
     {
         this.sprite = sprite;
+        name = "TakeDamage";
         EventBus.Instance.OnTakeDamage += ApplyEffect;
+    }
+
+    override public string GetName()
+    {
+        return name;
     }
 
     override public void Register(RelicEffects effect)
@@ -181,22 +199,22 @@ public class TakeDamage : RelicTriggers
     {
         if (!applied)
         {
-            UnityEngine.Debug.Log("TakeDamage event sent.");
+            //UnityEngine.Debug.Log("TakeDamage event sent.");
             effect.apply();
             applied = true;
-            UnityEngine.Debug.Log("Effect applied!");
+            //UnityEngine.Debug.Log("Effect applied!");
         }
             
     }
 
     override public void RemoveEffect()
     {
-        UnityEngine.Debug.Log("Spell cast!");
+        //UnityEngine.Debug.Log("Spell cast!");
         if (applied)
         {
             effect.remove();
             applied = false;
-            UnityEngine.Debug.Log("Effect removed!");
+            //UnityEngine.Debug.Log("Effect removed!");
         }
     }
 }
@@ -209,7 +227,13 @@ public class MaxMana : RelicTriggers
     {
         this.sprite = sprite;
         this.owner = owner;
+        name = "MaxMana";
         EventBus.Instance.OnMaxMana += ApplyEffect;
+    }
+
+    override public string GetName()
+    {
+        return name;
     }
 
     override public void Register(RelicEffects effect)
@@ -233,21 +257,21 @@ public class MaxMana : RelicTriggers
     {
         if (!applied)
         {
-            UnityEngine.Debug.Log("OnMaxMana event sent.");
+            //UnityEngine.Debug.Log("OnMaxMana event sent.");
             effect.apply();
             applied = true;
-            UnityEngine.Debug.Log("Effect applied!");
+            //UnityEngine.Debug.Log("Effect applied!");
         }
     }
 
     override public void RemoveEffect()
     {
-        UnityEngine.Debug.Log("Spell cast!");
+        //UnityEngine.Debug.Log("Spell cast!");
         if (applied)
         {
             effect.remove();
             applied = false;
-            UnityEngine.Debug.Log("Effect removed!");
+            //UnityEngine.Debug.Log("Effect removed!");
         }
     }
 
@@ -260,8 +284,15 @@ public class SpellDrop : RelicTriggers
     public SpellDrop(int sprite)
     {
         this.sprite = sprite;
+        name = "SpellDrop";
+
         EventBus.Instance.OnSpellDrop += ApplyEffect;
-        UnityEngine.Debug.Log("SpellDrop event sent.");
+        //UnityEngine.Debug.Log("SpellDrop event sent.");
+    }
+
+    override public string GetName()
+    {
+        return name;
     }
 
     override public void Register(RelicEffects effect)
@@ -272,7 +303,7 @@ public class SpellDrop : RelicTriggers
     override public void ApplyEffect()
     {
         effect.apply();
-        UnityEngine.Debug.Log("Permanent Spellpower Added!");
+        //UnityEngine.Debug.Log("Permanent Spellpower Added!");
     }
 }
 
@@ -283,8 +314,14 @@ public class WaveStart : RelicTriggers
     public WaveStart(int sprite)
     {
         this.sprite = sprite;
+        name = "WaveStart";
         EventBus.Instance.OnWaveStart += ApplyEffect;
-        UnityEngine.Debug.Log("WaveStart event sent");
+        //UnityEngine.Debug.Log("WaveStart event sent");
+    }
+
+    override public string GetName()
+    {
+        return name;
     }
 
     public override void Register(RelicEffects effect)
@@ -295,7 +332,7 @@ public class WaveStart : RelicTriggers
     public override void ApplyEffect()
     {
         effect.apply();
-        UnityEngine.Debug.Log("In WaveStart() trigger: Applying effect!");
+        //UnityEngine.Debug.Log("In WaveStart() trigger: Applying effect!");
         RemoveEffect();
     }
 
@@ -309,7 +346,7 @@ public class WaveStart : RelicTriggers
 
     IEnumerator Duration()
     {
-        UnityEngine.Debug.Log("Starting effect duration timer");
+        //UnityEngine.Debug.Log("Starting effect duration timer");
         yield return new WaitForSeconds(30);
         effect.remove();
     }
@@ -322,8 +359,14 @@ public class WaveComplete : RelicTriggers
     public WaveComplete(int sprite)
     {
         this.sprite = sprite;
+        name = "WaveComplete";
         EventBus.Instance.OnWaveEnd += ApplyEffect;
-        UnityEngine.Debug.Log("WaveComplete event sent");
+        //UnityEngine.Debug.Log("WaveComplete event sent");
+    }
+
+    override public string GetName()
+    {
+        return name;
     }
 
     public override void Register(RelicEffects effect)
@@ -334,7 +377,7 @@ public class WaveComplete : RelicTriggers
     override public void ApplyEffect()
     {
         effect.apply();
-        UnityEngine.Debug.Log("MaxHp added");
+        //UnityEngine.Debug.Log("MaxHp added");
     }
 }
 
@@ -345,8 +388,14 @@ public class EnemyDamage : RelicTriggers
     public EnemyDamage(int sprite)
     {
         this.sprite = sprite;
+        name = "EnemyDamage";
         EventBus.Instance.OnEnemyTakeDamage += ApplyEffect;
-        UnityEngine.Debug.Log("EnemyDamage event sent");
+        //UnityEngine.Debug.Log("EnemyDamage event sent");
+    }
+
+    override public string GetName()
+    {
+        return name;
     }
 
     public override void Register(RelicEffects effect)
@@ -357,6 +406,6 @@ public class EnemyDamage : RelicTriggers
     public override void ApplyEffect()
     {
         effect.apply();
-        UnityEngine.Debug.Log("Regained mana");
+        //UnityEngine.Debug.Log("Regained mana");
     }
 }

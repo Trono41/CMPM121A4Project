@@ -4,6 +4,7 @@ public class CraftingScreen : MonoBehaviour
 {
     public GameObject spellCraftPanel;
     public GameObject relicCraftPanel;
+    public CraftingScreenManager crafting_screen_manager;
 
     void Start()
     {
@@ -21,6 +22,7 @@ public class CraftingScreen : MonoBehaviour
         {
             spellCraftPanel.SetActive(false);
             relicCraftPanel.SetActive(true);
+            crafting_screen_manager.DoRelicPieces();
         }
     }
 
@@ -30,6 +32,7 @@ public class CraftingScreen : MonoBehaviour
         {
             spellCraftPanel.SetActive(true);
             relicCraftPanel.SetActive(false);
+            crafting_screen_manager.DoSpellPieces();
         }
     }
 } 

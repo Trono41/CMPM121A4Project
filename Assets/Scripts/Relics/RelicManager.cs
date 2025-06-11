@@ -26,8 +26,8 @@ public class RelicManager : MonoBehaviour
 
     JArray relic_data;
     List<JObject> relic_objects;
-    List<RelicTriggers> relic_triggers;
-    List<RelicEffects> relic_effects;
+    List<RelicTriggers> relic_triggers = new List<RelicTriggers>();
+    List<RelicEffects> relic_effects = new List<RelicEffects>();
     RelicBuilder relic_builder;
     PlayerController player;
 
@@ -35,6 +35,8 @@ public class RelicManager : MonoBehaviour
     {
         relic_data = ReadRelicData();
         BuildRelicObjects(relic_data);
+        BuildTriggers();
+        BuildEffects();
         relic_builder = new RelicBuilder();
         player = GameObject.FindFirstObjectByType<PlayerController>();
     }
@@ -63,6 +65,21 @@ public class RelicManager : MonoBehaviour
         return relic_builder.BuildRelic(relic_objects[i]);
     }
 
+    public RelicPart GetRelicPart()
+    {
+        return relic_triggers.Find(x => x.GetName() == "EnemyDeath");
+    }
+
+    public RelicPart GetTrigger()
+    {
+        return relic_triggers.Find(x => x.GetName() == "EnemyDeath");
+    }
+
+    public RelicPart GetEffect()
+    {
+        return relic_effects.Find(x => x.GetName() == "GainMana");
+    }
+
     public void BuildTriggers()
     {
         foreach (var relic_object in relic_objects)
@@ -87,7 +104,7 @@ public class RelicManager : MonoBehaviour
 
         if (trigger_type == "take-damage")
         {
-            UnityEngine.Debug.Log("Attempting to build take-damage trigger");
+            //UnityEngine.Debug.Log("Attempting to build take-damage trigger");
             return new TakeDamage(sprite);
         }
         else if (trigger_type == "stand-still")
@@ -105,22 +122,22 @@ public class RelicManager : MonoBehaviour
         }
         else if (trigger_type == "on-spell-drop")
         {
-            UnityEngine.Debug.Log("Attempting to build spell-drop effect");
+            //UnityEngine.Debug.Log("Attempting to build spell-drop effect");
             return new SpellDrop(sprite);
         }
         else if (trigger_type == "wave-start")
         {
-            UnityEngine.Debug.Log("Attempting to build wave-start trigger");
+            //UnityEngine.Debug.Log("Attempting to build wave-start trigger");
             return new WaveStart(sprite);
         }
         else if (trigger_type == "wave-complete")
         {
-            UnityEngine.Debug.Log("Attempting to build wave-complete trigger");
+            //UnityEngine.Debug.Log("Attempting to build wave-complete trigger");
             return new WaveComplete(sprite);
         }
         else if (trigger_type == "enemy-damage")
         {
-            UnityEngine.Debug.Log("Attempting to build enemy-damage trigger");
+            //UnityEngine.Debug.Log("Attempting to build enemy-damage trigger");
             return new EnemyDamage(sprite);
         }
 
@@ -141,34 +158,34 @@ public class RelicManager : MonoBehaviour
         }
         else if (effect_type == "gain-spellpower")
         {
-            UnityEngine.Debug.Log("Attempting to build gain-spellpower effect");
+            //UnityEngine.Debug.Log("Attempting to build gain-spellpower effect");
             amount = effect_object["amount"].ToObject<string>();
             until = effect_object["until"].ToObject<string>();
             return new GainSpellPower(amount, sprite, until, player);
         }
         else if (effect_type == "gain-temp-spellpower")
         {
-            UnityEngine.Debug.Log("Attempting to build gain-spellpower effect");
+            //UnityEngine.Debug.Log("Attempting to build gain-spellpower effect");
             amount = effect_object["amount"].ToObject<string>();
             until = effect_object["until"].ToObject<string>();
             return new GainTempSpellPower(amount, sprite, until, player);
         }
         else if (effect_type == "gain-defense")
         {
-            UnityEngine.Debug.Log("Attempting to build gain-defense effect");
+            //UnityEngine.Debug.Log("Attempting to build gain-defense effect");
             amount = effect_object["amount"].ToObject<string>();
             until = effect_object["until"].ToObject<string>();
             return new GainDefense(amount, sprite, until, player);
         }
         else if (effect_type == "regain-hp")
         {
-            UnityEngine.Debug.Log("Attempting to build regain-hp effect");
+            //UnityEngine.Debug.Log("Attempting to build regain-hp effect");
             amount = effect_object["amount"].ToObject<string>();
             return new RegainHP(amount, sprite, player);
         }
         else if (effect_type == "gain-max-hp")
         {
-            UnityEngine.Debug.Log("Attempting to build gain-max-hp effect");
+            //UnityEngine.Debug.Log("Attempting to build gain-max-hp effect");
             amount = effect_object["amount"].ToObject<string>();
             return new GainMaxHP(amount, sprite, player);
         }
@@ -182,9 +199,15 @@ public class RelicPart
 {
 
     protected int sprite;
+    protected string name;
 
-    public int GetIcon()
+    virtual public int GetIcon()
     {
         return sprite;
+    }
+
+    virtual public string GetName()
+    {
+        return name;
     }
 }

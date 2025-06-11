@@ -53,6 +53,7 @@ public class ModifierSpell : Spell
         isModifier = true;
 
         name = properties["name"].ToString();
+        icon = properties["icon"].ToObject<int>();
         description = properties["description"].ToObject<string>();
 
     }
@@ -172,6 +173,12 @@ public class ModifierSpell : Spell
     {
         return inner.GetIcon();
     }
+
+    public int GetOwnIcon()
+    {
+        return icon;
+    }
+    
 }
 
 public class DamageAmplifier : ModifierSpell

@@ -53,7 +53,7 @@
    "arcane_slow": {
        "name": "Arcane Slow",
        "description": "A blast which slows the enemy on hit.",
-       "icon": "3",
+       "icon": 3,
        "damage": {"amount": "10 power 3 / +", "type": "arcane"},
        "mana_cost": "10 power 5 / +",
        "cooldown": "2.5",
@@ -101,17 +101,20 @@
    "damage_amp": {
        "name": "Damage-Amplified",
        "description": "Increased damage and increased mana cost.",
+       "icon": 16,
        "damage_multiplier": "1.5",
        "mana_multiplier": "1.5"
    },
    "speed_amp": {
        "name": "Speed-Amplified",
        "description": "Faster projectile speed.",
+       "icon": 16,
        "speed_multiplier": "1.75"
    },
    "rapid_fire":{
         "name": "Rapid Fire",
         "description": "Decreased cooldown and damage, but increased speed.",
+        "icon": 16,
         "damage_multiplier": "0.25",
         "mana_multiplier": "0.5",
         "speed_multiplier": "2",
@@ -120,6 +123,7 @@
    "slug": {
        "name": "Slug",
        "description": "Decreased speed, but heavily increased damage and mana cost. Minorly increased cooldown.",
+       "icon": 16,
        "damage_multiplier": "2",
        "mana_multiplier": "1.75",
        "speed_multiplier": "0.5",
@@ -128,12 +132,14 @@
    "heavy": {
        "name": "Heavy",
        "description": "Slow, but deadly...",
+       "icon": 16,
        "speed_multiplier": "0.5",
        "damage_multiplier": "1.5"
    },
    "doubler": {
        "name": "Doubled",
        "description": "Spell is cast a second time after a small delay; increased mana cost and cooldown.",
+       "icon": 16,
        "delay": "0.5",
        "mana_multiplier": "1.5",
        "cooldown_multiplier": "1.5"
@@ -141,18 +147,21 @@
    "splitter": {
        "name": "Split",
        "description": "Spell is cast twice in slightly different directions; increased mana cost.",
+       "icon": 16,
        "angle": "10",
        "mana_multiplier": "1.5"
    },
    "chaos": {
        "name": "Chaotic",
        "description": "Significantly increased damage, but projectile is spiraling.",
+       "icon": 16,
        "damage_multiplier": "1.5 wave 5 / +",
        "projectile_trajectory": "spiraling"
    },
    "homing": {
        "name": "Homing",
        "description": "Homing projectile, with decreased damage and increased mana cost.",
+       "icon": 3,
        "damage_multiplier": "0.75",
        "mana_adder": "10",
        "projectile_trajectory": "homing"
@@ -160,6 +169,7 @@
    "bounce": {
        "name": "Bouncing",
        "description": "If this spell hits an enemy, it bounces off them.",
+       "icon": 16,
        "mana_multiplier": "1.2"
    }
 }
