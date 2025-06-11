@@ -13,11 +13,11 @@ public class ScreenManager : MonoBehaviour
     void Start()
     {
         // Initialize curr_screen with a default screen if ClassSelectorScreen is not found
-        curr_screen = GameObject.Find("ClassSelectorScreen");
+        curr_screen = GameObject.Find("MainMenuScreen");
         if (curr_screen == null && screens != null && screens.Length > 0)
         {
             curr_screen = screens[0];
-            Debug.LogWarning("ClassSelectorScreen not found, using first screen in array as default");
+            Debug.LogWarning("MainMenuScreen not found, using first screen in array as default");
         }
         
         if (EventBus.Instance != null)
@@ -81,4 +81,9 @@ public class ScreenManager : MonoBehaviour
         }
     }
     
+    public void QuitGame()
+    {
+        Debug.Log("Quitting game!");
+        Application.Quit();
+    }
 }

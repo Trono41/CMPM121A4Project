@@ -44,13 +44,6 @@
                 "hp": "20 5 wave * +",
                 "sequence": [2,2],
                 "location": "random"
-            },
-            {
-                "enemy": "wisp",
-                "count": "wave 2 /",
-                "hp": "base wave +",
-                "sequence": [2,2,4],
-                "location": "random red"
             }
         ]
    },

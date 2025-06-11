@@ -25,6 +25,8 @@ public class ClassSelector : MonoBehaviour
 
     void Start()
     {
+        buttonPos = 50;
+
         var classtext = Resources.Load<TextAsset>("classes");
 
         JObject jo = JObject.Parse(classtext.text);
@@ -32,7 +34,7 @@ public class ClassSelector : MonoBehaviour
         {
 
             GameObject selector = Instantiate(button, class_selector.transform);
-            selector.transform.localPosition = new Vector3(0, buttonPos);
+            selector.transform.localPosition = new Vector3(4.5f, buttonPos);
             selector.GetComponent<MenuSelectorController>().player = player;
             selector.GetComponent<MenuSelectorController>().class_selector = this;
             selector.GetComponent<MenuSelectorController>().GetClass(c.Key, c.Value);
