@@ -1,8 +1,7 @@
 using System;
 using UnityEngine;
 
-public interface Piece<T>
+public class Piece
 {
-
-
+    public Piece() { }
 }

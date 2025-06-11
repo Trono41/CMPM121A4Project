@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
 using System;
 
-public class Spell
+public class Spell : Piece
 {
     public float last_cast;
     public SpellCaster owner;

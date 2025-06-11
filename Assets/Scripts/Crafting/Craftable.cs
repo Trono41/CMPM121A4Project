@@ -10,7 +10,9 @@ public class Craftable : MonoBehaviour
     public GameObject trigger;
     public GameObject effect;
 
-    private int craftable_pieces;
+    List<Piece> craftable_pieces = new List<Piece>();
+
+    private int num_pieces;
     private CraftingScreenManager craftingManager;
 
     void Start()
@@ -53,8 +55,8 @@ public class Craftable : MonoBehaviour
             {
                 if (mod_spells[i] == null)
                 {
-                    mod_spells[i] = piece;
-                    craftable_pieces++;
+                    mod_spells[i].GetComponent<PieceUI>().SetPiece(spellComponent);
+                    num_pieces++;
                     craftingManager.DoSpellPieces();
                     return;
                 }
@@ -64,10 +66,10 @@ public class Craftable : MonoBehaviour
         else
         {
             // Add base spell if there's no base spell yet
-            if (base_spell == null)
+            if (base_spell.GetComponent<PieceUI>().spell_piece == null)
             {
-                base_spell = piece;
-                craftable_pieces++;
+                base_spell.GetComponent<PieceUI>().SetPiece(spellComponent);
+                num_pieces++;
                 craftingManager.DoSpellPieces();
             }
             else
@@ -98,10 +100,10 @@ public class Craftable : MonoBehaviour
         // Check if it's a trigger or effect by checking the type
         if (relicComponent is RelicTriggers)
         {
-            if (trigger == null)
+            if (trigger.GetComponent<PieceUI>().relic_piece == null)
             {
-                trigger = piece;
-                craftable_pieces++;
+                trigger.GetComponent<PieceUI>().SetPiece(relicComponent);
+                num_pieces++;
                 craftingManager.DoRelicPieces();
             }
             else
@@ -111,10 +113,10 @@ public class Craftable : MonoBehaviour
         }
         else if (relicComponent is RelicEffects)
         {
-            if (effect == null)
+            if (effect.GetComponent<PieceUI>().relic_piece == null)
             {
-                effect = piece;
-                craftable_pieces++;
+                effect.GetComponent<PieceUI>().SetPiece(relicComponent);
+                num_pieces++;
                 craftingManager.DoRelicPieces();
             }
             else
@@ -141,7 +143,7 @@ public class Craftable : MonoBehaviour
         trigger = null;
         effect = null;
 
-        craftable_pieces = 0;
+        num_pieces = 0;
 
         // Update the crafting panel
         if (craftingManager != null)
@@ -150,5 +152,5 @@ public class Craftable : MonoBehaviour
             craftingManager.DoRelicPieces();
         }
     }
->>>>>>> a22eac594cd4331284b06b5ff6c957fbb6645273
+
 }

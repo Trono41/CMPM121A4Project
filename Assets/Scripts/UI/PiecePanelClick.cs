@@ -99,7 +99,8 @@ public class PiecePanelClick : MonoBehaviour, IPointerClickHandler
         }
         else
         {
-            Debug.LogError($"No spell or relic piece found on {gameObject.name}");
+            return;
+            //Debug.LogError($"No spell or relic piece found on {gameObject.name}");
         }
     }
 

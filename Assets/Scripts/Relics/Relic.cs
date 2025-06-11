@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System;
 
-public class Relic
+public class Relic : Piece
 {
 
     string name;

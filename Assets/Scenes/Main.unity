@@ -599,7 +599,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 83241942}
-  - component: {fileID: 83241943}
   m_Layer: 5
   m_Name: SpellCraft
   m_TagString: Untagged
@@ -630,24 +629,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &83241943
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 83241941}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8419674a68f7c9449a671824731797cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mod_spells:
-  - {fileID: 1146901756}
-  - {fileID: 1683167701}
-  base_spell: {fileID: 1384864789}
-  trigger: {fileID: 0}
-  effect: {fileID: 0}
 --- !u!1 &85449862
 GameObject:
   m_ObjectHideFlags: 0
@@ -946,7 +927,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 163783318}
-  - component: {fileID: 163783319}
   m_Layer: 5
   m_Name: RelicCraft
   m_TagString: Untagged
@@ -976,22 +956,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &163783319
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 163783317}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8419674a68f7c9449a671824731797cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mod_spells: []
-  base_spell: {fileID: 0}
-  trigger: {fileID: 85449862}
-  effect: {fileID: 1256774267}
 --- !u!1 &187173899
 GameObject:
   m_ObjectHideFlags: 0
@@ -3278,7 +3242,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &458287861
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6581,6 +6545,7 @@ GameObject:
   - component: {fileID: 1011532182}
   - component: {fileID: 1011532181}
   - component: {fileID: 1011532183}
+  - component: {fileID: 1011532184}
   m_Layer: 5
   m_Name: CraftPanel
   m_TagString: Untagged
@@ -6660,6 +6625,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 536a3bab43a833d4cb0aaadbc5af4596, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1011532184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1011532179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8419674a68f7c9449a671824731797cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mod_spells:
+  - {fileID: 1146901756}
+  - {fileID: 1683167701}
+  base_spell: {fileID: 1384864789}
+  trigger: {fileID: 85449862}
+  effect: {fileID: 1256774267}
 --- !u!1 &1021181093
 GameObject:
   m_ObjectHideFlags: 0
