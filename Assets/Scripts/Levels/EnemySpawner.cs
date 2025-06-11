@@ -90,7 +90,7 @@ public class EnemySpawner : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        int buttonPos = 130;
+        int buttonPos = 50;
         
         var enemytext = Resources.Load<TextAsset>("enemies");
 
@@ -110,7 +110,7 @@ public class EnemySpawner : MonoBehaviour
             level_types[lev.name] = lev;
 
             GameObject selector = Instantiate(button, level_selector.transform);
-            selector.transform.localPosition = new Vector3(0, buttonPos);
+            selector.transform.localPosition = new Vector3(4.5f, buttonPos);
             selector.GetComponent<MenuSelectorController>().spawner = this;
             selector.GetComponent<MenuSelectorController>().SetLevel(lev.name);
             buttonPos -= 50;

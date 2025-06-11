@@ -287,3 +287,5 @@ MonoBehaviour:
   spawner: {fileID: 0}
   class_selector: {fileID: 0}
   player: {fileID: 0}
+  screen_manager: {fileID: 0}
+  next_screen: {fileID: 0}
