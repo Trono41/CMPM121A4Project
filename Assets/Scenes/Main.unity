@@ -3255,7 +3255,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &458287861
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9051,8 +9051,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   container: {fileID: 1006228450}
   pieceUIContainer: {fileID: 1006228452}
-  player: {fileID: 1718273950}
-  playerController: {fileID: 1718273952}
 --- !u!4 &1508581900
 Transform:
   m_ObjectHideFlags: 0
