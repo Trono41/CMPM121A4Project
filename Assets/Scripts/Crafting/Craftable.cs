@@ -53,7 +53,7 @@ public class Craftable : MonoBehaviour
             // Add to modifier spells if there's space
             for (int i = 0; i < mod_spells.Length; i++)
             {
-                if (mod_spells[i] == null)
+                if (mod_spells[i].GetComponent<PieceUI>().spell_piece == null)
                 {
                     mod_spells[i].GetComponent<PieceUI>().SetPiece(spellComponent);
                     num_pieces++;
