@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CraftingScreen : MonoBehaviour
 {
@@ -6,6 +7,7 @@ public class CraftingScreen : MonoBehaviour
     public GameObject relicCraftPanel;
     public CraftingScreenManager crafting_screen_manager;
     public Craftable craftable;
+    public Button craftButton;
 
     void Start()
     {
@@ -14,6 +16,12 @@ public class CraftingScreen : MonoBehaviour
         {
             spellCraftPanel.SetActive(true);
             relicCraftPanel.SetActive(false);
+        }
+
+        // Add listener to craft button
+        if (craftButton != null)
+        {
+            craftButton.onClick.AddListener(OnCraftButtonClick);
         }
     }
 
@@ -42,6 +50,26 @@ public class CraftingScreen : MonoBehaviour
             spellCraftPanel.SetActive(true);
             relicCraftPanel.SetActive(false);
             crafting_screen_manager.DoSpellPieces();
+        }
+    }
+
+    public void OnCraftButtonClick()
+    {
+        if (spellCraftPanel.activeSelf)
+        {
+            // Spell crafting
+            if (craftable.CanCraftSpell())
+            {
+                craftable.CraftSpell();
+            }
+        }
+        else if (relicCraftPanel.activeSelf)
+        {
+            // Relic crafting
+            if (craftable.CanCraftRelic())
+            {
+                craftable.CraftRelic();
+            }
         }
     }
 } 

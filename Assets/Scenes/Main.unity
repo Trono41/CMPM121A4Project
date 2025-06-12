@@ -3282,6 +3282,7 @@ MonoBehaviour:
   relicCraftPanel: {fileID: 163783317}
   crafting_screen_manager: {fileID: 1508581899}
   craftable: {fileID: 1011532184}
+  craftButton: {fileID: 2005701782}
 --- !u!1 &462403409
 GameObject:
   m_ObjectHideFlags: 0
@@ -62986,9 +62987,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1011532183}
+      - m_Target: {fileID: 458287860}
         m_TargetAssemblyTypeName: Crafter, Assembly-CSharp
-        m_MethodName: Craft
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

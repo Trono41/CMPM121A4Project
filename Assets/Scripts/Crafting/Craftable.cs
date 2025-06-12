@@ -160,4 +160,99 @@ public class Craftable : MonoBehaviour
         }
     }
 
+    public bool CanCraftSpell()
+    {
+        // Check if there's a base spell
+        if (base_spell == null || base_spell.GetComponent<PieceUI>().spell_piece == null)
+        {
+            Debug.Log("Cannot craft spell: No base spell");
+            return false;
+        }
+        return true;
+    }
+
+    public bool CanCraftRelic()
+    {
+        // Check if both trigger and effect are present
+        if (trigger == null || trigger.GetComponent<PieceUI>().relic_piece == null)
+        {
+            Debug.Log("Cannot craft relic: No trigger");
+            return false;
+        }
+        if (effect == null || effect.GetComponent<PieceUI>().relic_piece == null)
+        {
+            Debug.Log("Cannot craft relic: No effect");
+            return false;
+        }
+        return true;
+    }
+
+    public void CraftSpell()
+    {
+        if (!CanCraftSpell()) return;
+
+        // Get the base spell
+        Spell baseSpell = base_spell.GetComponent<PieceUI>().spell_piece;
+        
+        // Apply modifiers in order
+        for (int i = 0; i < mod_spells.Length; i++)
+        {
+            if (mod_spells[i] != null)
+            {
+                Spell modifier = mod_spells[i].GetComponent<PieceUI>().spell_piece;
+                if (modifier != null && modifier.IsModifier())
+                {
+                    modifier.SetInnerSpell(baseSpell);
+                    baseSpell = modifier;
+                }
+            }
+        }
+
+        // Add the crafted spell to the player's spellbook
+        if (GameManager.Instance != null && GameManager.Instance.player != null)
+        {
+            PlayerController player = GameManager.Instance.player.GetComponent<PlayerController>();
+            if (player != null && player.spellcaster != null)
+            {
+                player.spellcaster.reward_spell = baseSpell;
+                player.spellcaster.AddSpell();
+                ClearPieces();
+            }
+        }
+    }
+
+    public void CraftRelic()
+    {
+        if (!CanCraftRelic()) return;
+
+        // Get the trigger and effect
+        RelicTriggers relicTrigger = trigger.GetComponent<PieceUI>().relic_piece as RelicTriggers;
+        RelicEffects relicEffect = effect.GetComponent<PieceUI>().relic_piece as RelicEffects;
+
+        if (relicTrigger != null && relicEffect != null)
+        {
+            // Create a name based on the trigger and effect
+            string relicName = relicTrigger.GetName() + " " + relicEffect.GetName();
+            
+            // Use the trigger's sprite as the base sprite
+            int sprite = relicTrigger.GetIcon();
+            
+            // Combine trigger and effect descriptions
+            string description = relicTrigger.GetName() + " triggers " + relicEffect.GetName();
+
+            // Create the relic
+            Relic newRelic = new Relic(relicName, sprite, description, relicTrigger, relicEffect);
+            
+            // Add the relic to the player's inventory
+            if (GameManager.Instance != null && GameManager.Instance.player != null)
+            {
+                PlayerController player = GameManager.Instance.player.GetComponent<PlayerController>();
+                if (player != null)
+                {
+                    player.relics.Add(newRelic);
+                    ClearPieces();
+                }
+            }
+        }
+    }
 }
