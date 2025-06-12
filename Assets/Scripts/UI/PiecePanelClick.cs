@@ -88,14 +88,12 @@ public class PiecePanelClick : MonoBehaviour, IPointerClickHandler
         // Handle spell pieces
         if (pieceUI.spell_piece != null)
         {
-            // Reset all other piece selections first
             craftable.ShowSpellPiece(gameObject);
             SetSelected(true);
         }
         // Handle relic pieces
         else if (pieceUI.relic_piece != null)
         {
-            // Reset all other piece selections first
             craftable.ShowRelicPiece(gameObject);
             SetSelected(true);
         }
