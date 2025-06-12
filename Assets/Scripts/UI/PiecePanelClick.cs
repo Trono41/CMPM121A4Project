@@ -89,7 +89,6 @@ public class PiecePanelClick : MonoBehaviour, IPointerClickHandler
         if (pieceUI.spell_piece != null)
         {
             // Reset all other piece selections first
-            ResetAllSelections();
             craftable.ShowSpellPiece(gameObject);
             SetSelected(true);
         }
@@ -97,7 +96,6 @@ public class PiecePanelClick : MonoBehaviour, IPointerClickHandler
         else if (pieceUI.relic_piece != null)
         {
             // Reset all other piece selections first
-            ResetAllSelections();
             craftable.ShowRelicPiece(gameObject);
             SetSelected(true);
         }
