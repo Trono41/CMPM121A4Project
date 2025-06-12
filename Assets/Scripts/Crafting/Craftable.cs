@@ -1,5 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using Image = UnityEngine.UI.Image;
+using static System.Net.Mime.MediaTypeNames;
 
 public class Craftable : MonoBehaviour
 {
@@ -135,13 +138,17 @@ public class Craftable : MonoBehaviour
         // Clear spell pieces
         for (int i = 0; i < mod_spells.Length; i++)
         {
-            mod_spells[i] = null;
+            mod_spells[i].GetComponent<PieceUI>().spell_piece = null;
+            mod_spells[i].GetComponent<PieceUI>().icon.GetComponent<Image>().sprite = null;
         }
-        base_spell = null;
+        base_spell.GetComponent<PieceUI>().spell_piece = null;
+        base_spell.GetComponent<PieceUI>().icon.GetComponent<Image>().sprite = null;
 
         // Clear relic pieces
-        trigger = null;
-        effect = null;
+        trigger.GetComponent<PieceUI>().relic_piece = null;
+        trigger.GetComponent<PieceUI>().icon.GetComponent<Image>().sprite = null;
+        effect.GetComponent<PieceUI>().relic_piece = null;
+        effect.GetComponent<PieceUI>().icon.GetComponent<Image>().sprite = null;
 
         num_pieces = 0;
 

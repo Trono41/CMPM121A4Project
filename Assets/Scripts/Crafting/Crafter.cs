@@ -14,9 +14,6 @@ public class Crafter : MonoBehaviour
         
     }
 
-    public void Craft()
-    {
-        
-    }
+
 
 }

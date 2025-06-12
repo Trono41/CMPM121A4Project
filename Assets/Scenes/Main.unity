@@ -3281,6 +3281,7 @@ MonoBehaviour:
   spellCraftPanel: {fileID: 83241941}
   relicCraftPanel: {fileID: 163783317}
   crafting_screen_manager: {fileID: 1508581899}
+  craftable: {fileID: 1011532184}
 --- !u!1 &462403409
 GameObject:
   m_ObjectHideFlags: 0

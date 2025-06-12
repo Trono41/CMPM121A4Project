@@ -5,6 +5,7 @@ public class CraftingScreen : MonoBehaviour
     public GameObject spellCraftPanel;
     public GameObject relicCraftPanel;
     public CraftingScreenManager crafting_screen_manager;
+    public Craftable craftable;
 
     void Start()
     {
@@ -22,6 +23,7 @@ public class CraftingScreen : MonoBehaviour
         {
             // Reset all piece selections before switching
             PiecePanelClick.ResetAllPieceSelections();
+            craftable.ClearPieces();
             
             spellCraftPanel.SetActive(false);
             relicCraftPanel.SetActive(true);
@@ -35,6 +37,7 @@ public class CraftingScreen : MonoBehaviour
         {
             // Reset all piece selections before switching
             PiecePanelClick.ResetAllPieceSelections();
+            craftable.ClearPieces();
             
             spellCraftPanel.SetActive(true);
             relicCraftPanel.SetActive(false);
