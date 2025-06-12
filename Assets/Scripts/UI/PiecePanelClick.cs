@@ -88,19 +88,22 @@ public class PiecePanelClick : MonoBehaviour, IPointerClickHandler
         // Handle spell pieces
         if (pieceUI.spell_piece != null)
         {
+            // Reset all other piece selections first
+            ResetAllSelections();
             craftable.ShowSpellPiece(gameObject);
             SetSelected(true);
         }
         // Handle relic pieces
         else if (pieceUI.relic_piece != null)
         {
+            // Reset all other piece selections first
+            ResetAllSelections();
             craftable.ShowRelicPiece(gameObject);
             SetSelected(true);
         }
         else
         {
             return;
-            //Debug.LogError($"No spell or relic piece found on {gameObject.name}");
         }
     }
 
@@ -115,6 +118,29 @@ public class PiecePanelClick : MonoBehaviour, IPointerClickHandler
         else
         {
             Debug.LogWarning($"No highlight object found on {gameObject.name}");
+        }
+    }
+
+    private void ResetAllSelections()
+    {
+        // Find all PiecePanelClick components in the scene
+        PiecePanelClick[] allPieces = FindObjectsOfType<PiecePanelClick>();
+        foreach (PiecePanelClick piece in allPieces)
+        {
+            if (piece != this) // Don't reset the current piece
+            {
+                piece.SetSelected(false);
+            }
+        }
+    }
+
+    // Call this method when switching between spell and relic crafting screens
+    public static void ResetAllPieceSelections()
+    {
+        PiecePanelClick[] allPieces = FindObjectsOfType<PiecePanelClick>();
+        foreach (PiecePanelClick piece in allPieces)
+        {
+            piece.SetSelected(false);
         }
     }
 } 

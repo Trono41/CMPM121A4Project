@@ -20,6 +20,9 @@ public class CraftingScreen : MonoBehaviour
     {
         if (spellCraftPanel != null && relicCraftPanel != null)
         {
+            // Reset all piece selections before switching
+            PiecePanelClick.ResetAllPieceSelections();
+            
             spellCraftPanel.SetActive(false);
             relicCraftPanel.SetActive(true);
             crafting_screen_manager.DoRelicPieces();
@@ -30,6 +33,9 @@ public class CraftingScreen : MonoBehaviour
     {
         if (spellCraftPanel != null && relicCraftPanel != null)
         {
+            // Reset all piece selections before switching
+            PiecePanelClick.ResetAllPieceSelections();
+            
             spellCraftPanel.SetActive(true);
             relicCraftPanel.SetActive(false);
             crafting_screen_manager.DoSpellPieces();
