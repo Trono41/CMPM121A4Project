@@ -13,6 +13,7 @@ public class EnemyController : MonoBehaviour
     public float defense = 1;
     public Damage.Type resistance;
     public Damage.Type weakness;
+    public float drop_chance;
     public AudioClip damageSound;
     public AudioSource audioSource;
 

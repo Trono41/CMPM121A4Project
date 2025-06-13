@@ -59,6 +59,7 @@ public class Enemy
     public int damage;
     public string resistance;
     public string weakness;
+    public float drop_chance;
 
     void Start()
     {
@@ -285,6 +286,9 @@ public class EnemySpawner : MonoBehaviour
 
         en.resistance = Damage.TypeFromString(enemyObject.resistance);
         en.weakness = Damage.TypeFromString(enemyObject.weakness);
+
+        en.drop_chance = enemyObject.drop_chance;
+        Debug.Log("Drop Chance for enemy " + enemyObject.name + ": " + en.drop_chance);
 
         GameManager.Instance.AddEnemy(new_enemy);
 
