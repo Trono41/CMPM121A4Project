@@ -165,15 +165,20 @@ public class Craftable : MonoBehaviour
     {
         PlayerController player = GameManager.Instance.player.GetComponent<PlayerController>();
 
-        foreach (Spell piece in craftable_pieces)
-        {
-            player.spell_pieces.Remove(piece);
+        foreach (Piece piece in craftable_pieces)
+        {   
+            if (piece.GetType() == typeof(Spell))
+            {
+                player.spell_pieces.Remove((Spell)piece);
+            }
+                
+            if (piece.GetType() == typeof(RelicPart))
+            {
+                player.relic_pieces.Remove((RelicPart)piece);
+            }
+                
         }
 
-        foreach (RelicPart piece in craftable_pieces)
-        {
-            player.relic_pieces.Remove(piece);
-        }
     }
 
     public bool CanCraftSpell()
