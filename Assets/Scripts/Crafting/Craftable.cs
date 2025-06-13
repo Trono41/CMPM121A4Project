@@ -17,6 +17,7 @@ public class Craftable : MonoBehaviour
 
     private int num_pieces;
     private CraftingScreenManager craftingManager;
+    public RelicUIManager relic_ui_manager;
 
     void Start()
     {
@@ -262,10 +263,9 @@ public class Craftable : MonoBehaviour
             // Add the relic to the player's inventory
             if (GameManager.Instance != null && GameManager.Instance.player != null)
             {
-                PlayerController player = GameManager.Instance.player.GetComponent<PlayerController>();
-                if (player != null)
+                if (relic_ui_manager != null)
                 {
-                    player.relics.Add(newRelic);
+                    relic_ui_manager.AddRelic(newRelic);
                     ClearPieces();
                     RemovePlayerPieces();
                 }
