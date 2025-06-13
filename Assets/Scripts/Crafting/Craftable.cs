@@ -152,6 +152,7 @@ public class Craftable : MonoBehaviour
         effect.GetComponent<PieceUI>().icon.GetComponent<Image>().sprite = null;
 
         num_pieces = 0;
+        craftable_pieces.Clear();
 
         // Update the crafting panel
         /*if (craftingManager != null)
@@ -166,15 +167,18 @@ public class Craftable : MonoBehaviour
         PlayerController player = GameManager.Instance.player.GetComponent<PlayerController>();
 
         foreach (Piece piece in craftable_pieces)
-        {   
-            if (piece.GetType() == typeof(Spell))
+        {
+            UnityEngine.Debug.Log(piece.GetType());
+            if (piece.GetType().IsSubclassOf(typeof(Spell)))
             {
+                UnityEngine.Debug.Log("Delete spell.");
                 player.spell_pieces.Remove((Spell)piece);
             }
                 
-            if (piece.GetType() == typeof(RelicPart))
+            if (piece.GetType().IsSubclassOf(typeof(RelicPart)))
             {
                 player.relic_pieces.Remove((RelicPart)piece);
+                UnityEngine.Debug.Log("delete relic.");
             }
                 
         }
@@ -238,8 +242,9 @@ public class Craftable : MonoBehaviour
             {
                 player.spellcaster.reward_spell = baseSpell;
                 player.spellUIContainer.AddSpell();
-                ClearPieces();
                 RemovePlayerPieces();
+                ClearPieces();
+                craftingManager.DoSpellPieces();
             }
         }
     }
@@ -250,6 +255,9 @@ public class Craftable : MonoBehaviour
         // Get the trigger and effect
         RelicTriggers relicTrigger = trigger.GetComponent<PieceUI>().relic_piece as RelicTriggers;
         RelicEffects relicEffect = effect.GetComponent<PieceUI>().relic_piece as RelicEffects;
+
+        craftable_pieces.Add(relicTrigger);
+        craftable_pieces.Add(relicEffect);
 
         if (relicTrigger != null && relicEffect != null)
         {
@@ -271,8 +279,9 @@ public class Craftable : MonoBehaviour
                 if (relic_ui_manager != null)
                 {
                     relic_ui_manager.AddRelic(newRelic);
-                    ClearPieces();
                     RemovePlayerPieces();
+                    ClearPieces();
+                    craftingManager.DoRelicPieces();
                 }
             }
         }

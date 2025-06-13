@@ -6788,7 +6788,7 @@ MonoBehaviour:
   base_spell: {fileID: 1384864789}
   trigger: {fileID: 85449862}
   effect: {fileID: 1256774267}
-  relic_ui_manager: {fileID: 0}
+  relic_ui_manager: {fileID: 1202924362}
 --- !u!1 &1021181093
 GameObject:
   m_ObjectHideFlags: 0
@@ -12063,7 +12063,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59e380bbacf3b1e46a7b9b7764299b5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
 --- !u!4 &1823753706
 Transform:
   m_ObjectHideFlags: 0
