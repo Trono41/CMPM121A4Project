@@ -986,11 +986,11 @@ RectTransform:
   m_Children:
   - {fileID: 1115058367}
   - {fileID: 593602387}
-  - {fileID: 875806600}
   - {fileID: 458287861}
   - {fileID: 1709288114}
   - {fileID: 1889072080}
   - {fileID: 36456916}
+  - {fileID: 875806600}
   m_Father: {fileID: 2021125305}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
