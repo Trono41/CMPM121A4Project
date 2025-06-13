@@ -12,6 +12,7 @@ using System.Collections;
 public class PlayerController : MonoBehaviour
 {
 
+    public AudioClip shootSound;
     public ClassSelector class_selector;
 
     public Hittable hp;
@@ -151,6 +152,11 @@ public class PlayerController : MonoBehaviour
         Vector3 mouseWorld = Camera.main.ScreenToWorldPoint(mouseScreen);
         mouseWorld.z = 0;
         StartCoroutine(spellcaster.Cast(transform.position, mouseWorld));
+
+        SoundManager.instance.playSound(shootSound, transform, 1f);
+        //audioSource.clip = shootSound;
+        //audioSource.Play();
+        //audioSource.clip = damageSound;
     }
 
     void OnMove(InputValue value)
