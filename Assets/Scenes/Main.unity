@@ -986,11 +986,11 @@ RectTransform:
   m_Children:
   - {fileID: 1115058367}
   - {fileID: 593602387}
-  - {fileID: 875806600}
   - {fileID: 458287861}
   - {fileID: 1709288114}
   - {fileID: 1889072080}
   - {fileID: 36456916}
+  - {fileID: 875806600}
   m_Father: {fileID: 2021125305}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -11461,9 +11461,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 <<<<<<< HEAD
+<<<<<<< HEAD
   shootSound: {fileID: 8300000, guid: 73d30c669a598784a986b0ed233346ee, type: 3}
 =======
 >>>>>>> a2fd44585c9fa62aca8886ea128de0c152140731
+=======
+  shootSound: {fileID: 0}
+>>>>>>> f6ed3241784ccbdd8e66db38463402987f827b7a
   class_selector: {fileID: 1986784938}
   healthui: {fileID: 765025204}
   manaui: {fileID: 71109453}
