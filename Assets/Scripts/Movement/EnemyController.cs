@@ -60,9 +60,77 @@ public class EnemyController : MonoBehaviour
             EventBus.Instance.DoEnemyDeath();
             UnityEngine.Debug.Log("EnemyDeath event sent.");
             dead = true;
+
+            // Try to drop an item based on drop chance
+            if (Random.value <= drop_chance)
+            {
+                // Randomly choose between spell piece and relic piece
+                if (Random.value < 0.5f)
+                {
+                    // Drop a spell piece
+                    SpellBuilder spellBuilder = new SpellBuilder();
+                    Spell spellPiece = spellBuilder.BuildSpell(GameManager.Instance.player.GetComponent<PlayerController>().spellcaster);
+                    DropItem(spellPiece);
+                }
+                else
+                {
+                    // Drop a relic piece
+                    RelicManager relicManager = RelicManager.Instance;
+                    if (Random.value < 0.5f)
+                    {
+                        // Drop a trigger
+                        RelicPart triggerPart = relicManager.GetTrigger();
+                        if (triggerPart is RelicTriggers trigger)
+                        {
+                            DropItem(trigger);
+                        }
+                    }
+                    else
+                    {
+                        // Drop an effect
+                        RelicPart effectPart = relicManager.GetEffect();
+                        if (effectPart is RelicEffects effect)
+                        {
+                            DropItem(effect);
+                        }
+                    }
+                }
+            }
+
             GameManager.Instance.RemoveEnemy(gameObject);
             Destroy(gameObject);
         }
+    }
+
+    void DropItem(Piece piece)
+    {
+        // Create a new GameObject for the dropped item
+        GameObject dropObj = new GameObject("DroppedItem");
+        dropObj.transform.position = transform.position;
+        
+        // Add a sprite renderer
+        SpriteRenderer spriteRenderer = dropObj.AddComponent<SpriteRenderer>();
+        
+        // Get the appropriate icon based on piece type
+        int iconIndex = 0;
+        if (piece is Spell spell)
+        {
+            iconIndex = spell.GetIcon();
+        }
+        else if (piece is RelicPart relicPart)
+        {
+            iconIndex = relicPart.GetIcon();
+        }
+        
+        spriteRenderer.sprite = GameManager.Instance.spellIconManager.Get(iconIndex);
+        
+        // Add a collider for pickup
+        CircleCollider2D collider = dropObj.AddComponent<CircleCollider2D>();
+        collider.isTrigger = true;
+        
+        // Add the DroppedItem component
+        DroppedItem droppedItem = dropObj.AddComponent<DroppedItem>();
+        droppedItem.piece = piece;
     }
 
     public void SetSpeed(int newSpeed)
