@@ -7930,8 +7930,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 720, y: 254.8356}
+  m_AnchoredPosition: {x: 0, y: 10.4}
+  m_SizeDelta: {x: 720, y: 370.2346}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1209996373
 MonoBehaviour:
@@ -7963,7 +7963,15 @@ MonoBehaviour:
 
     Jonathan Ng
 
-    Hojoun Yoon'
+    Hojoun Yoon
+
+
+    Music used:
+
+    Retro Game Arcade,
+    from Pixabay.com
+
+    Sounds generated using jsfxr'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -12063,7 +12071,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59e380bbacf3b1e46a7b9b7764299b5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
 --- !u!4 &1823753706
 Transform:
   m_ObjectHideFlags: 0
