@@ -5,7 +5,6 @@ using TMPro;
 
 public class MenuSelectorController : MonoBehaviour
 {
-    private AudioClip music;
     public TextMeshProUGUI label;
     public string level;
     public EnemySpawner spawner;
@@ -21,8 +20,6 @@ public class MenuSelectorController : MonoBehaviour
     {
         screen_manager = GameObject.Find("ScreenManager").GetComponent<ScreenManager>();
         next_screen = GameObject.Find("DifficultySelector");
-
-        music = Resources.Load<AudioClip>("Sounds/Music");
     }
 
     // Update is called once per frame
@@ -47,7 +44,6 @@ public class MenuSelectorController : MonoBehaviour
     public void StartLevel()
     {
         spawner.StartLevel(level);
-        SoundManager.instance.playSound(music, transform, .1f);
     }
 
     public void SetClass()
