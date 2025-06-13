@@ -21,10 +21,7 @@ public class Hittable
 
     public void Damage(Damage damage)
     {
-
-        
-
-        SoundManager.instance.playSound(damageSound, owner.transform, 1f);
+        // SoundManager.instance.playSound(damageSound, owner.transform, 1f);
 
         damage.amount = (int) (damage.amount * defense);
 
