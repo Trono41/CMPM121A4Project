@@ -153,10 +153,25 @@ public class Craftable : MonoBehaviour
         num_pieces = 0;
 
         // Update the crafting panel
-        if (craftingManager != null)
+        /*if (craftingManager != null)
         {
             craftingManager.DoSpellPieces();
             craftingManager.DoRelicPieces();
+        }*/
+    }
+
+    public void RemovePlayerPieces()
+    {
+        PlayerController player = GameManager.Instance.player.GetComponent<PlayerController>();
+
+        foreach (Spell piece in craftable_pieces)
+        {
+            player.spell_pieces.Remove(piece);
+        }
+
+        foreach (RelicPart piece in craftable_pieces)
+        {
+            player.relic_pieces.Remove(piece);
         }
     }
 
@@ -192,7 +207,7 @@ public class Craftable : MonoBehaviour
 
         // Get the base spell
         Spell baseSpell = base_spell.GetComponent<PieceUI>().spell_piece;
-        UnityEngine.Debug.Log("Set base spell!");
+        craftable_pieces.Add(baseSpell);
         
         // Apply modifiers in order
         for (int i = mod_spells.Length - 1; i >= 0; i--)
@@ -202,7 +217,7 @@ public class Craftable : MonoBehaviour
                 Spell modifier = mod_spells[i].GetComponent<PieceUI>().spell_piece;
                 if (modifier != null && modifier.IsModifier())
                 {
-                    UnityEngine.Debug.Log("Set modifier!");
+                    craftable_pieces.Add(modifier);
                     modifier.SetInnerSpell(baseSpell);
                     baseSpell = modifier;
                 }
@@ -218,6 +233,7 @@ public class Craftable : MonoBehaviour
                 player.spellcaster.reward_spell = baseSpell;
                 player.spellUIContainer.AddSpell();
                 ClearPieces();
+                RemovePlayerPieces();
             }
         }
     }
@@ -251,6 +267,7 @@ public class Craftable : MonoBehaviour
                 {
                     player.relics.Add(newRelic);
                     ClearPieces();
+                    RemovePlayerPieces();
                 }
             }
         }
