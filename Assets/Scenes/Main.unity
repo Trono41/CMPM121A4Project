@@ -6788,7 +6788,7 @@ MonoBehaviour:
   base_spell: {fileID: 1384864789}
   trigger: {fileID: 85449862}
   effect: {fileID: 1256774267}
-  relic_ui_manager: {fileID: 0}
+  relic_ui_manager: {fileID: 1202924362}
 --- !u!1 &1021181093
 GameObject:
   m_ObjectHideFlags: 0
