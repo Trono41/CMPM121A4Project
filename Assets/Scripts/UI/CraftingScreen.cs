@@ -60,7 +60,9 @@ public class CraftingScreen : MonoBehaviour
             // Spell crafting
             if (craftable.CanCraftSpell())
             {
+                UnityEngine.Debug.Log("Not crafting spell!");
                 craftable.CraftSpell();
+                UnityEngine.Debug.Log("Crafting spell!");
             }
         }
         else if (relicCraftPanel.activeSelf)

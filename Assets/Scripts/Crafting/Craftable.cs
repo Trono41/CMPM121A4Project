@@ -189,19 +189,20 @@ public class Craftable : MonoBehaviour
 
     public void CraftSpell()
     {
-        if (!CanCraftSpell()) return;
 
         // Get the base spell
         Spell baseSpell = base_spell.GetComponent<PieceUI>().spell_piece;
+        UnityEngine.Debug.Log("Set base spell!");
         
         // Apply modifiers in order
-        for (int i = 0; i < mod_spells.Length; i++)
+        for (int i = mod_spells.Length - 1; i >= 0; i--)
         {
             if (mod_spells[i] != null)
             {
                 Spell modifier = mod_spells[i].GetComponent<PieceUI>().spell_piece;
                 if (modifier != null && modifier.IsModifier())
                 {
+                    UnityEngine.Debug.Log("Set modifier!");
                     modifier.SetInnerSpell(baseSpell);
                     baseSpell = modifier;
                 }
@@ -212,10 +213,10 @@ public class Craftable : MonoBehaviour
         if (GameManager.Instance != null && GameManager.Instance.player != null)
         {
             PlayerController player = GameManager.Instance.player.GetComponent<PlayerController>();
-            if (player != null && player.spellcaster != null)
+            if (player != null && player.spellUIContainer != null)
             {
                 player.spellcaster.reward_spell = baseSpell;
-                player.spellcaster.AddSpell();
+                player.spellUIContainer.AddSpell();
                 ClearPieces();
             }
         }
@@ -223,7 +224,6 @@ public class Craftable : MonoBehaviour
 
     public void CraftRelic()
     {
-        if (!CanCraftRelic()) return;
 
         // Get the trigger and effect
         RelicTriggers relicTrigger = trigger.GetComponent<PieceUI>().relic_piece as RelicTriggers;

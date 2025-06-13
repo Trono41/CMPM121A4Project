@@ -3327,12 +3327,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 462403409}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 176.39478, y: 44.36493, z: 0.20966947}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 178.42778, y: 43.967693, z: 0.14488491}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1718273953}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &482055822
 GameObject:
@@ -11325,6 +11325,7 @@ MonoBehaviour:
   gameOverText: {fileID: 1533559640}
   ui: {fileID: 1202924362}
   relic_manager: {fileID: 1570750601}
+  spellUIContainer: {fileID: 462403410}
 --- !u!4 &1718273953
 Transform:
   m_ObjectHideFlags: 0
@@ -11343,6 +11344,7 @@ Transform:
   - {fileID: 519420032}
   - {fileID: 232596021}
   - {fileID: 1986784937}
+  - {fileID: 462403411}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1718273954
@@ -64474,7 +64476,6 @@ SceneRoots:
   - {fileID: 74364217}
   - {fileID: 947241246}
   - {fileID: 856041117}
-  - {fileID: 462403411}
   - {fileID: 640203540}
   - {fileID: 1928302330}
   - {fileID: 1570750600}

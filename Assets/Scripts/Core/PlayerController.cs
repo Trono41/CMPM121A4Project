@@ -56,6 +56,8 @@ public class PlayerController : MonoBehaviour
     public RelicUIManager ui;
     public RelicManager relic_manager;
 
+    public SpellUIContainer spellUIContainer;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
