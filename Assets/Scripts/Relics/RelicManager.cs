@@ -195,7 +195,7 @@ public class RelicManager : MonoBehaviour
 
 }
 
-public class RelicPart
+public class RelicPart : Piece
 {
 
     protected int sprite;
