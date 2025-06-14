@@ -86,7 +86,7 @@ public class PiecePanelClick : MonoBehaviour, IPointerClickHandler
         }
 
         // Handle spell pieces
-        if (pieceUI.spell_piece != null)
+        if (pieceUI.spell_piece != null && !isSelected)
         {
             craftable.ShowSpellPiece(gameObject);
             SetSelected(true);

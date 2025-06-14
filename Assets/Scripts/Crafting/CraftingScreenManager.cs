@@ -27,7 +27,7 @@ public class CraftingScreenManager : MonoBehaviour
 
         if (EventBus.Instance != null)
         {
-            EventBus.Instance.OnWaveEnd += DoSpellPieces;
+            EventBus.Instance.OnWaveEnd += UpdatePiecePanel;
         }
     }
 
@@ -41,14 +41,18 @@ public class CraftingScreenManager : MonoBehaviour
         }
     }
 
+    public void UpdatePiecePanel()
+    {
+        playerController.GetCraftingPieces();
+        DoSpellPieces();
+    }
+
     public void DoSpellPieces()
     {
         if (playerController == null || pieceUIContainer == null || container == null) return;
 
         UnityEngine.Debug.Log(playerController.spell_pieces.Count);
         int i = 0;
-
-        playerController.GetCraftingPieces();
 
         UnityEngine.Debug.Log(playerController.spell_pieces.Count);
 
