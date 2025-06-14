@@ -15,7 +15,7 @@ public class PieceUI : MonoBehaviour
     public void SetPiece(Spell piece)
     {
         this.spell_piece = piece;
-        UnityEngine.Debug.Log("PIECEUI SET");
+        //UnityEngine.Debug.Log("PIECEUI SET");
         if (spell_piece.IsModifier())
         {
             ModifierSpell mod_spell_piece = spell_piece as ModifierSpell;

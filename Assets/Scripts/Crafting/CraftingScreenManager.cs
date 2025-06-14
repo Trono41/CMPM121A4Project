@@ -48,6 +48,10 @@ public class CraftingScreenManager : MonoBehaviour
         UnityEngine.Debug.Log(playerController.spell_pieces.Count);
         int i = 0;
 
+        playerController.GetCraftingPieces();
+
+        UnityEngine.Debug.Log(playerController.spell_pieces.Count);
+
         pieceUIContainer.ClearPieces();
         foreach (var piece in playerController.spell_pieces)
         {

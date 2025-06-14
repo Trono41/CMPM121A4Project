@@ -100,7 +100,7 @@ public class PlayerController : MonoBehaviour
         hp.OnDeath += Die;
         hp.team = Hittable.Team.PLAYER;
 
-        ui.AddRelic(RelicManager.Instance.BuildRelic());
+        //ui.AddRelic(RelicManager.Instance.BuildRelic());
 
         // tell UI elements what to show
         healthui.SetHealth(hp);
@@ -132,6 +132,21 @@ public class PlayerController : MonoBehaviour
         //Debug.Log("Player Max_HP: " + hp.max_hp);
         //Debug.Log("Player Mana: " + spellcaster.mana);
         //Debug.Log("Player Mana Regen: " + spellcaster.mana_reg);
+    }
+
+    public void GetCraftingPieces()
+    {
+        if (spell_pieces.Count < 8)
+        {
+            spell_pieces.Add(spellcaster.spellbuilder.BuildSpellPiece(spellcaster));
+        }
+
+        if (relic_pieces.Count < 8)
+        {
+            relic_pieces.Add(relic_manager.GetRelicPart());
+        }
+
+        return;
     }
 
     // Update is called once per frame

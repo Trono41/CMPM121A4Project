@@ -102,32 +102,6 @@ public class SpellBuilder
         return new ArcaneBolt();
     }
 
-    // Creates a Spell object and assigns it the corresponding attributes to the JSON file
-
-    public Spell BuildSpells(string mod, string name, SpellCaster owner)
-    {
-
-        ModifierSpell mod_spell = new Slug();
-
-        JObject jobject = properties[mod].Value<JObject>();
-        mod_spell.SetProperties(jobject);
-        mod_spell.SetOwner(owner);
-
-        Spell inner = new ArcaneBolt();
-
-        JObject jobject1 = properties[name].Value<JObject>();
-        inner.SetProperties(jobject1);
-        inner.SetOwner(owner);
-
-        mod_spell.AddChild(inner.GetName());
-        mod_spell.SetInnerSpell(inner);
-
-        UnityEngine.Debug.Log(mod_spell);
-        UnityEngine.Debug.Log(inner);
-
-        return mod_spell;
-    }
-
     // Building random spells
 
     public Spell BuildSpell(SpellCaster owner)
@@ -158,6 +132,19 @@ public class SpellBuilder
     public Spell BuildSpellPiece(string name, SpellCaster owner)
     {
         Spell spell = MakeSpell(name);
+
+        //UnityEngine.Debug.Log(name);
+
+        JObject jobject = properties[name].Value<JObject>();
+        spell.SetProperties(jobject);
+        spell.SetOwner(owner);
+
+        return spell;
+    }
+
+    public Spell BuildSpellPiece(SpellCaster owner)
+    {
+        Spell spell = MakeSpell("random");
 
         //UnityEngine.Debug.Log(name);
 

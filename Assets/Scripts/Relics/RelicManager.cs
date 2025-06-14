@@ -67,7 +67,13 @@ public class RelicManager : MonoBehaviour
 
     public RelicPart GetRelicPart()
     {
-        return relic_triggers.Find(x => x.GetName() == "EnemyDeath");
+        List<RelicPart> relic_parts = new List<RelicPart>();
+        relic_parts.AddRange(relic_triggers);
+        relic_parts.AddRange(relic_effects);
+
+        int val = UnityEngine.Random.Range(0, relic_parts.Count);
+
+        return relic_parts[val];
     }
 
     public RelicPart GetTrigger()
