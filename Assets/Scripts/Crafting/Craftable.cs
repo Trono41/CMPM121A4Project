@@ -61,7 +61,7 @@ public class Craftable : MonoBehaviour
                 {
                     mod_spells[i].GetComponent<PieceUI>().SetPiece(spellComponent);
                     num_pieces++;
-                    craftingManager.DoSpellPieces();
+                    //craftingManager.DoSpellPieces();
                     return;
                 }
             }
@@ -74,7 +74,7 @@ public class Craftable : MonoBehaviour
             {
                 base_spell.GetComponent<PieceUI>().SetPiece(spellComponent);
                 num_pieces++;
-                craftingManager.DoSpellPieces();
+                //craftingManager.DoSpellPieces();
             }
             else
             {

@@ -34,7 +34,7 @@ public class SpellBuilder
 
         //used.Add(val);
 
-        Debug.Log("Name of spell: " + s);
+        Debug.Log("Name of spell: " + name);
 
         if (name == "arcane_bolt")
             return new ArcaneBolt();

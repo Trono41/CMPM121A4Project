@@ -51,15 +51,12 @@ public class CraftingScreenManager : MonoBehaviour
     {
         if (playerController == null || pieceUIContainer == null || container == null) return;
 
-        UnityEngine.Debug.Log(playerController.spell_pieces.Count);
         int i = 0;
-
-        UnityEngine.Debug.Log(playerController.spell_pieces.Count);
 
         pieceUIContainer.ClearPieces();
         foreach (var piece in playerController.spell_pieces)
         {
-            UnityEngine.Debug.Log(piece);
+            UnityEngine.Debug.Log("Piece: " + piece);
             pieceUIContainer.SetPieceUI(piece, i);
             i++;
         }

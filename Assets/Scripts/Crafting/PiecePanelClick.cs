@@ -109,6 +109,7 @@ public class PiecePanelClick : MonoBehaviour, IPointerClickHandler
         isSelected = selected;
         if (highlight != null)
         {
+            UnityEngine.Debug.Log("Highlight Activated!");
             highlight.SetActive(selected);
         }
         else
