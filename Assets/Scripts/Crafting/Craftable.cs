@@ -61,7 +61,8 @@ public class Craftable : MonoBehaviour
                 {
                     mod_spells[i].GetComponent<PieceUI>().SetPiece(spellComponent);
                     num_pieces++;
-                    //craftingManager.DoSpellPieces();
+
+                    pieceUI.GetComponent<PiecePanelClick>().SetSelected(true);
                     return;
                 }
             }
@@ -74,6 +75,8 @@ public class Craftable : MonoBehaviour
             {
                 base_spell.GetComponent<PieceUI>().SetPiece(spellComponent);
                 num_pieces++;
+
+                pieceUI.GetComponent<PiecePanelClick>().SetSelected(true);
                 //craftingManager.DoSpellPieces();
             }
             else
@@ -108,7 +111,9 @@ public class Craftable : MonoBehaviour
             {
                 trigger.GetComponent<PieceUI>().SetPiece(relicComponent);
                 num_pieces++;
-                craftingManager.DoRelicPieces();
+
+                pieceUI.GetComponent<PiecePanelClick>().SetSelected(true);
+                //craftingManager.DoRelicPieces();
             }
             else
             {
@@ -121,7 +126,9 @@ public class Craftable : MonoBehaviour
             {
                 effect.GetComponent<PieceUI>().SetPiece(relicComponent);
                 num_pieces++;
-                craftingManager.DoRelicPieces();
+
+                pieceUI.GetComponent<PiecePanelClick>().SetSelected(true);
+                //craftingManager.DoRelicPieces();
             }
             else
             {

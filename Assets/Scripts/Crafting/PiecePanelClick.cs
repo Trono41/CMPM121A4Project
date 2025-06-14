@@ -89,13 +89,13 @@ public class PiecePanelClick : MonoBehaviour, IPointerClickHandler
         if (pieceUI.spell_piece != null && !isSelected)
         {
             craftable.ShowSpellPiece(gameObject);
-            SetSelected(true);
+            //SetSelected(true);
         }
         // Handle relic pieces
         else if (pieceUI.relic_piece != null)
         {
             craftable.ShowRelicPiece(gameObject);
-            SetSelected(true);
+            //SetSelected(true);
         }
         else
         {
