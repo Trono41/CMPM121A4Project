@@ -136,14 +136,17 @@ public class PlayerController : MonoBehaviour
 
     public void GetCraftingPieces()
     {
-        if (spell_pieces.Count < 8)
+
+        for (int i = 0; i < 2; i++)
         {
-            spell_pieces.Add(spellcaster.spellbuilder.BuildSpellPiece(spellcaster));
+            if (spell_pieces.Count < 8)
+                spell_pieces.Add(spellcaster.spellbuilder.BuildSpellPiece(spellcaster));
         }
 
-        if (relic_pieces.Count < 8)
+        for (int i = 0; i < 2; i++)
         {
-            relic_pieces.Add(relic_manager.GetRelicPart());
+            if (relic_pieces.Count < 8)
+                relic_pieces.Add(relic_manager.GetRelicPart());
         }
 
         return;
