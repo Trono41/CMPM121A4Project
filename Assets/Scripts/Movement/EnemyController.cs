@@ -13,7 +13,6 @@ public class EnemyController : MonoBehaviour
     public float defense = 1;
     public Damage.Type resistance;
     public Damage.Type weakness;
-    public float drop_chance;
     public AudioClip damageSound;
     public AudioSource audioSource;
 
@@ -60,42 +59,6 @@ public class EnemyController : MonoBehaviour
             EventBus.Instance.DoEnemyDeath();
             UnityEngine.Debug.Log("EnemyDeath event sent.");
             dead = true;
-
-            // Try to drop an item based on drop chance
-            if (Random.value <= drop_chance)
-            {
-                // Randomly choose between spell piece and relic piece
-                if (Random.value < 0.5f)
-                {
-                    // Drop a spell piece
-                    SpellBuilder spellBuilder = new SpellBuilder();
-                    Spell spellPiece = spellBuilder.BuildSpell(GameManager.Instance.player.GetComponent<PlayerController>().spellcaster);
-                    DropItem(spellPiece);
-                }
-                else
-                {
-                    // Drop a relic piece
-                    RelicManager relicManager = RelicManager.Instance;
-                    if (Random.value < 0.5f)
-                    {
-                        // Drop a trigger
-                        RelicPart triggerPart = relicManager.GetTrigger();
-                        if (triggerPart is RelicTriggers trigger)
-                        {
-                            DropItem(trigger);
-                        }
-                    }
-                    else
-                    {
-                        // Drop an effect
-                        RelicPart effectPart = relicManager.GetEffect();
-                        if (effectPart is RelicEffects effect)
-                        {
-                            DropItem(effect);
-                        }
-                    }
-                }
-            }
 
             GameManager.Instance.RemoveEnemy(gameObject);
             Destroy(gameObject);

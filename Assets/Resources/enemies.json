@@ -6,8 +6,7 @@
        "speed": 5,
        "damage": 5,
        "resistance": "nature",
-       "weakness": "fire",
-       "drop_chance": 0.10
+       "weakness": "fire"
    },
    {
        "name": "skeleton",
@@ -16,8 +15,7 @@
        "speed": 7,
        "damage": 10,
        "resistance": "dark",
-       "weakness": "light",
-       "drop_chance": 0.25
+       "weakness": "light"
    },  
    {
        "name": "warlock",
@@ -26,8 +24,7 @@
        "speed": 7,
        "damage": 10,
        "resistance": "arcane",
-       "weakness": "ice",
-       "drop_chance": 0.75
+       "weakness": "ice"
    },
    {
        "name": "wendigo",
@@ -36,8 +33,7 @@
        "speed": 4,
        "damage": 15,
        "resistance": "ice",
-       "weakness": "light",
-       "drop_chance": 0.90
+       "weakness": "light"
    },
    {
        "name": "wolf",
@@ -46,8 +42,7 @@
        "speed": 10,
        "damage": 10,
        "resistance": "ice",
-       "weakness": "fire",
-       "drop_chance": 0.10
+       "weakness": "fire"
    },
    {
        "name": "ghoul",
@@ -56,8 +51,7 @@
        "speed": 5,
        "damage": 1,
        "resistance": "arcane",
-       "weakness": "dark",
-       "drop_chance": 0.15
+       "weakness": "dark"
    },
    {
        "name": "eye",
@@ -66,8 +60,7 @@
        "speed": 12,
        "damage": 5,
        "resistance": "light",
-       "weakness": "dark",
-       "drop_chance": 0.10
+       "weakness": "dark"
    },
    {
        "name": "wisp",
@@ -76,8 +69,7 @@
        "speed": 12,
        "damage": 5,
        "resistance": "fire",
-       "weakness": "ice",
-       "drop_chance": 0.10
+       "weakness": "ice"
    },
    {
        "name": "gorgon",
@@ -86,7 +78,6 @@
        "speed": 4,
        "damage": 20,
        "resistance": "fire",
-       "weakness": "nature",
-       "drop_chance": 1.00
+       "weakness": "nature"
    }
 ]

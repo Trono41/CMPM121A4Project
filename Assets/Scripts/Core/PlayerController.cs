@@ -107,13 +107,6 @@ public class PlayerController : MonoBehaviour
         manaui.SetSpellCaster(spellcaster);
         spellui.SetSpell(spellcaster.spellbook[0]);
 
-        spell_pieces.Add(spellcaster.spellbuilder.BuildSpellPiece("arcane_bolt", spellcaster));
-        spell_pieces.Add(spellcaster.spellbuilder.BuildSpellPiece("homing", spellcaster));
-        spell_pieces.Add(spellcaster.spellbuilder.BuildSpellPiece("doubler", spellcaster));
-
-        relic_pieces.Add(relic_manager.GetTrigger());
-        relic_pieces.Add(relic_manager.GetEffect());
-
         //Debug.Log("Player HP: " + hp.hp);
         //Debug.Log("Player Mana: " + spellcaster.mana);
         //Debug.Log("Player Mana Regen: " + spellcaster.mana_reg);
