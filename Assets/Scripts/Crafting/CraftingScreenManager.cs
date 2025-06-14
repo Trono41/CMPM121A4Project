@@ -76,7 +76,7 @@ public class CraftingScreenManager : MonoBehaviour
         {
             UnityEngine.Debug.Log(piece);
             pieceUIContainer.SetPieceUI(piece, i);
-            i++;
+            ++i;
         }
 
         container.SetActive(true);
