@@ -63,6 +63,7 @@ public class Craftable : MonoBehaviour
                     num_pieces++;
 
                     pieceUI.GetComponent<PiecePanelClick>().SetSelected(true);
+                    //craftingManager.DoSpellPieces();
                     return;
                 }
             }
