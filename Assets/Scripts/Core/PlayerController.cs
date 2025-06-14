@@ -100,7 +100,7 @@ public class PlayerController : MonoBehaviour
         hp.OnDeath += Die;
         hp.team = Hittable.Team.PLAYER;
 
-        //ui.AddRelic(RelicManager.Instance.BuildRelic());
+        // ui.AddRelic(RelicManager.Instance.BuildRelic());
 
         // tell UI elements what to show
         healthui.SetHealth(hp);
